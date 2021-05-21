@@ -4,9 +4,9 @@ namespace Uasoft\Badaso\Theme\SimpleTheme\Providers;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Uasoft\Badaso\Theme\SimpleTheme\SimpleTheme;
-use Uasoft\Badaso\Theme\SimpleTheme\Facades\SimpleTheme as FacadesSimpleTheme;
 use Uasoft\Badaso\Theme\SimpleTheme\Commands\SimpleThemeSetup;
+use Uasoft\Badaso\Theme\SimpleTheme\Facades\SimpleTheme as FacadesSimpleTheme;
+use Uasoft\Badaso\Theme\SimpleTheme\SimpleTheme;
 
 class SimpleThemeProvider extends ServiceProvider
 {
