@@ -51,10 +51,10 @@ export default {
       this.$api.simpleTheme
         .browse({
           page: 1,
-          perPage: 4
+          limit: 4
         })
         .then((res) => {
-          this.posts = res.data.posts
+          this.posts = res.data.posts.data
         })
         .catch((err) => {
           console.log('Error on fetching posts', err);

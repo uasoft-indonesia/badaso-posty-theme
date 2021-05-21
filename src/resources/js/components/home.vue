@@ -44,7 +44,9 @@ export default {
     PopularPost
   },
   data:()=>({
-    posts: [],
+    posts: {
+      data: []
+    },
     loading: false
   }),
   created() {
@@ -52,10 +54,10 @@ export default {
   },
   computed: {
     newestPost() {
-      return this.posts.slice(0, 4);
+      return this.posts.data.slice(0, 4);
     },
     otherPost() {
-      return this.posts.slice(4, 8);
+      return this.posts.data.slice(4, 8);
     }
   },
   methods: {
@@ -64,7 +66,7 @@ export default {
       this.$api.simpleTheme
         .browse({
           page: 1,
-          perPage: 10
+          limit: 10
         })
         .then((res) => {
           this.posts = res.data.posts
@@ -77,7 +79,7 @@ export default {
     getThumbnails() {
       let thumbnails = [];
       
-      this.posts.forEach(element => {
+      this.posts.data.forEach(element => {
         if (element.thumbnail) {
           thumbnails.push(element);
         }

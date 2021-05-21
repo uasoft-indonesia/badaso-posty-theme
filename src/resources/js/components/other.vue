@@ -13,7 +13,7 @@
       <vs-col>
         <vs-card class="simple-theme__other--card mb-0">
           <div class="simple-theme__other--card-content-container" v-for="(post, index) in posts" :key="index">
-            <vs-row vs-type="flex" vs-justify="center" vs-align="center">
+            <vs-row vs-type="flex" vs-justify="center" vs-align="flex-start">
               <vs-col vs-xs="12" vs-sm="12" vs-lg="4">
                 <img :src="post.thumbnail" @click="$to('post', post.slug)" :class="{pointer: true, 'mb-20': $isMobile}">
               </vs-col>

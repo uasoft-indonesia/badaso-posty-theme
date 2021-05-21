@@ -14,6 +14,7 @@ import SimpleThemeComment from "./components/comment";
 import SimpleThemeOther from "./components/other";
 import SimpleThemeInfo from "./components/info";
 import SimpleThemeSearch from "./components/search";
+import SimpleThemePagination from "./components/pagination";
 
 import moment from "moment"
 
@@ -73,6 +74,7 @@ Vue.prototype.$to = function (type, query = null) {
   }
 }
 Vue.prototype.$isMobile = Math.min(window.screen.width, window.screen.height) < 768;
+Vue.prototype.$scrollToTop = () => window.scrollTo(0,0);
 Vue.prototype.$constants = {
   MOBILE: "mobile",
   DESKTOP: "desktop",
@@ -90,6 +92,7 @@ Vue.component("SimpleThemeComment", SimpleThemeComment);
 Vue.component("SimpleThemeOther", SimpleThemeOther);
 Vue.component("SimpleThemeInfo", SimpleThemeInfo);
 Vue.component("SimpleThemeSearch", SimpleThemeSearch);
+Vue.component("SimpleThemePagination", SimpleThemePagination);
 
 Vue.prototype.$baseUrl = "/";
 

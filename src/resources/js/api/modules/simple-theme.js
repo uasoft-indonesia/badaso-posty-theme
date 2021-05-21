@@ -7,14 +7,14 @@ let apiPrefix = process.env.MIX_API_ROUTE_PREFIX
 
 export default {
   browse(data = {}) {
-    let ep = apiPrefix + "/v1/post/public";
+    let ep = apiPrefix + "/v1/post";
     let qs = QueryString(data);
     let url = ep + qs;
     return resource.get(url);
   },
 
   read(data) {
-    let ep = apiPrefix + "/v1/post/public/read";
+    let ep = apiPrefix + "/v1/post/read-slug";
     let qs = QueryString(data);
     let url = ep + qs;
     return resource.get(url);

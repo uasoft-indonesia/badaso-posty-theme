@@ -587,7 +587,7 @@ body {
       height: 125px;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
 
       @media screen and (min-width: $xl) {
@@ -1200,12 +1200,36 @@ body {
         }
       }
 
-      & img {
+      & > img {
         margin: -20px;
         border-radius: 15px 15px 0 0;
         width: calc(100% + 40px);
         height: auto;
         margin-bottom: 40px;
+
+        &:not(:first-child) {
+          margin: 0px;
+          border-radius: 0;
+          width: 100%;
+          height: auto;
+          margin-bottom: 0px;
+        }
+      }
+
+      & > p > img {
+        margin: -20px;
+        border-radius: 15px 15px 0 0;
+        width: calc(100% + 40px);
+        height: auto;
+        margin-bottom: 40px;
+      }
+
+      & > p:not(:first-child) > img {
+        margin: 0px;
+        border-radius: 0;
+        width: 100%;
+        height: auto;
+        margin-bottom: 0px;
       }
 
       & ul {
@@ -1224,6 +1248,11 @@ body {
         & li:not(:last-child) {
           margin-bottom: 8px;
         }
+      }
+
+      & table {
+        margin-bottom: 16px;
+        width: 100% !important;
       }
     }
 
@@ -1434,6 +1463,12 @@ body {
       color: #4F4F4F;
       font-weight: bold;
       cursor: pointer;
+    }
+  }
+
+  &__pagination {
+    & > div {
+      justify-content: center !important;
     }
   }
 }
