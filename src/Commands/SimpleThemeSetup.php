@@ -116,11 +116,8 @@ class SimpleThemeSetup extends Command
                 <<<'EOT'
 
         // Simple Theme
-        mix
-            .js(
-                "vendor/uasoft-indonesia/badaso-simple-theme/src/resources/js/app.js",
-                "public/js/simple-theme.js"
-            )
+        mix.js("vendor/uasoft-indonesia/badaso-simple-theme/src/resources/js/app.js", "public/js/simple-theme.js");
+        mix.webpackConfig({ resolve: { alias: { 'vue$': 'vue/dist/vue.common.js' } } });
         EOT;
 
             $this->file->append($mix_file, $data);
