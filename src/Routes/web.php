@@ -17,7 +17,3 @@ Route::get($prefix.'{slug}', function ($slug) {
 
     return view('simple-theme::posts', compact('slug', 'post'));
 });
-
-Route::get('/{any?}', function () {
-    return view('simple-theme::errors.404');
-});

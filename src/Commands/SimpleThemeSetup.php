@@ -133,6 +133,8 @@ class SimpleThemeSetup extends Command
 
         $decoded_json['dependencies']['vue-owl-carousel'] = '^2.0.3';
         $decoded_json['dependencies']['vue-clamp'] = '^0.3.2';
+        
+        $decoded_json['devDependencies']['vue-concise-slider'] = '^3.4.4';
 
         $encoded_json = json_encode($decoded_json, JSON_PRETTY_PRINT);
         file_put_contents(base_path('package.json'), $encoded_json);
