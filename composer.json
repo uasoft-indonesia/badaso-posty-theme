@@ -1,0 +1,44 @@
+{
+    "version": "1.0.0-alpha.1",
+    "name": "uasoft-indonesia/badaso-simple-theme",
+    "description": "Official theme and the first theme created by badaso team",
+    "keywords": [
+        "laravel",
+        "admin",
+        "panel",
+        "dashboard",
+        "pwa",
+        "vue",
+        "generator",
+        "blog",
+        "badaso"
+    ],
+    "license": "proprietary",
+    "homepage": "https://badaso.uatech.co.id/",
+    "support": {
+        "issues": "https://github.com/uasoft-indonesia/badaso-simple-theme/issues",
+        "discussion": "https://github.com/uasoft-indonesia/badaso-simple-theme/discussions",
+        "source": "https://github.com/uasoft-indonesia/badaso-simple-theme"
+    },
+    "type": "library",
+    "require": {},
+    "authors": [
+        {
+            "name": "UASOFT",
+            "email": "hello@uatech.co.id"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "autoload": {
+        "psr-4": {
+            "Uasoft\\Badaso\\Theme\\SimpleTheme\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Uasoft\\Badaso\\Theme\\SimpleTheme\\Providers\\SimpleThemeProvider"
+            ]
+        }
+    }
+}
