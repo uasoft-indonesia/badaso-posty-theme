@@ -188,7 +188,7 @@ export default {
     },
     postComment() {
       this.$api.badasoBlog
-        .postComment({
+        .addComment({
           postId: this.post.id,
           content: this.comment,
         })
