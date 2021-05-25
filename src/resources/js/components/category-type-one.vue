@@ -1,0 +1,192 @@
+<template>
+  <div v-if="loading" style="display: block; text-align: center">
+    <vs-icon icon="refresh" class="simple-theme__loading" size="large"></vs-icon>
+  </div>
+  <div v-else>
+    <template v-if="$isMobile">
+      <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts && posts.length > 0">
+        <vs-col vs-w="6" vs-justify="flex-start" vs-align="center" vs-type="flex" class="mb-4">
+          <span @click="$to('category', posts[0].category.slug)" class="simple-theme__category--title">{{ posts[0].category.title }}</span>
+        </vs-col>
+        <vs-col vs-w="6" vs-justify="flex-end" vs-align="center" vs-type="flex" class="mb-4">
+          <span @click="$to('category', posts[0].category.slug)" class="d-flex justify-content-center align-items-center text-black"><span class="simple-theme__category--see-all">LIHAT SEMUA</span> <vs-icon icon="chevron_right" size="12px"></vs-icon></span>
+        </vs-col>
+        <vs-col>
+          <vs-card class="simple-theme__category--card mb-20">
+            <div slot="media" class="simple-theme__category--card-header-container">
+              <img :src="posts[0].thumbnail" @click="$to('post', posts[0].slug)" class="pointer">
+              <div class="simple-theme__category--card-header">
+                <vs-row>
+                  <vs-col class="mb-8">
+                    <span @click="$to('category', posts[0].category.slug)">
+                      <vs-chip color="#2E99A5" class="simple-theme__category--card-header-chip">{{ posts[0].category.title }}</vs-chip>
+                    </span>
+                  </vs-col>
+                  <vs-col>
+                    <h3 @click="$to('post', posts[0].slug)" class="simple-theme__category--card-header-text">{{ posts[0].title }}</h3>
+                  </vs-col>
+                </vs-row>
+              </div>
+            </div>
+            <div class="simple-theme__category--card-content-container">
+              <vue-clamp :max-lines="5" class="simple-theme__category--card-description mb-16">
+                {{ posts[0].summary }}
+                <template slot="after">
+                  <span @click="$to('post', posts[0].slug)" class="simple-theme__category--read-more">Baca Selengkapnya</span>
+                </template>
+              </vue-clamp>
+              <vs-row vs-type="grid" class="h-100 place-content-start">
+                <vs-col vs-w="12" vs-type="grid" vs-justify="center" vs-align="center" class="grid-column mb-8">
+                  <vs-icon icon="chat_bubble_outline" color="#4F4F4F" size="14px"></vs-icon> 
+                  <span class="simple-theme__showcase--icon-text ml-4">{{ posts[0].commentCount }}</span>
+                  <vs-icon icon="schedule" color="#4F4F4F" size="14px" class="ml-16"></vs-icon> 
+                  <span class="simple-theme__showcase--icon-text ml-4">{{ $moment(posts[0].publishedAt, "LL") }}</span>
+                </vs-col>
+              </vs-row>
+            </div>
+          </vs-card>
+          <template v-if="posts && posts.length > 1">
+            <vs-card :class="{ 'simple-theme__category--card': true, 'mb-20': index !== secondaryPost.length - 1, 'mb-0': index === secondaryPost.length - 1}" v-for="(post, index) in secondaryPost" :key="index" :style="'background-image: url(' + post.thumbnail + ')'">
+              <div slot="media" class="simple-theme__category--card-header-container-secondary">
+                <div class="simple-theme__category--card-header-secondary">
+                  <vs-row>
+                    <vs-col class="mb-8">
+                      <span @click="$to('category', post.category.slug)">
+                        <vs-chip color="#2E99A5" class="simple-theme__category--card-header-chip">{{ post.category.title }}</vs-chip>
+                      </span>
+                    </vs-col>
+                    <vs-col>
+                      <vue-clamp tag="h3" :max-lines="2" @click="$to('post', post.slug)" class="simple-theme__category--card-header-text">
+                        {{ post.title }}
+                      </vue-clamp>
+                    </vs-col>
+                  </vs-row>
+                </div>
+              </div>
+            </vs-card>
+          </template>
+        </vs-col>
+      </vs-row>
+    </template>
+    
+    <template v-else>
+      <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts && posts.length > 0">
+        <vs-col vs-w="6" vs-justify="flex-start" vs-align="center" vs-type="flex" class="mb-8">
+          <span @click="$to('category', posts[0].category.slug)" class="simple-theme__category--title">{{ posts[0].category.title }}</span>
+        </vs-col>
+        <vs-col vs-w="6" vs-justify="flex-end" vs-align="center" vs-type="flex" class="mb-8">
+          <div @click="$to('category', posts[0].category.slug)" class="d-flex justify-content-center align-items-center text-black">
+            <span class="simple-theme__category--see-all">LIHAT SEMUA</span>
+            <vs-icon icon="chevron_right" size="12px"></vs-icon>
+          </div>
+        </vs-col>
+        <vs-col>
+          <vs-row vs-justify="center" vs-align="flex-start" vs-type="flex">
+            <vs-col vs-w="8" class="pr-30">
+              <vs-card class="simple-theme__category--card mb-0">
+                <div slot="media" class="simple-theme__category--card-header-container">
+                  <img :src="posts[0].thumbnail" @click="$to('post', posts[0].slug)" class="pointer">
+                  <div class="simple-theme__category--card-header">
+                    <vs-row>
+                      <vs-col class="mb-8">
+                        <span @click="$to('category', posts[0].category.slug)">
+                          <vs-chip color="#2E99A5" class="simple-theme__category--card-header-chip">{{ posts[0].category.title }}</vs-chip>
+                        </span>
+                      </vs-col>
+                      <vs-col>
+                        <h3 @click="$to('post', posts[0].slug)" class="simple-theme__category--card-header-text">{{ posts[0].title }}</h3>
+                      </vs-col>
+                    </vs-row>
+                  </div>
+                </div>
+                <div class="simple-theme__category--card-content-container">
+                  <vue-clamp :max-lines="5" class="simple-theme__category--card-description mb-16">
+                    {{ posts[0].summary }}
+                    <template slot="after">
+                      <span @click="$to('post', posts[0].slug)" class="simple-theme__category--read-more">Baca Selengkapnya</span>
+                    </template>
+                  </vue-clamp>
+                  <vs-row vs-type="grid" class="h-100 place-content-start">
+                    <vs-col vs-w="12" vs-type="grid" vs-justify="center" vs-align="center" class="grid-column mb-8">
+                      <vs-icon icon="chat_bubble_outline" color="#4F4F4F" size="14px"></vs-icon> 
+                      <span class="simple-theme__showcase--icon-text ml-4">{{ posts[0].commentCount }}</span>
+                      <vs-icon icon="schedule" color="#4F4F4F" size="14px" class="ml-16"></vs-icon> 
+                      <span class="simple-theme__showcase--icon-text ml-4">{{ $moment(posts[0].publishedAt, "LL") }}</span>
+                    </vs-col>
+                  </vs-row>
+                </div>
+              </vs-card>
+            </vs-col>
+            <vs-col vs-w="4">
+              <template v-if="posts && posts.length > 1">
+                <vs-row vs-type="flex" vs-justify="center" vs-align="center">
+                  <vs-col v-for="(post, index) in secondaryPost" :key="index">
+                    <vs-card :class="{ 'simple-theme__category--card': true, 'mb-20': index !== secondaryPost.length - 1, 'mb-0': index === secondaryPost.length - 1}" :style="'background-image: url(' + post.thumbnail + ')'">
+                      <div slot="media" class="simple-theme__category--card-header-container-secondary p-16 pointer" @click="$to('post', post.slug)">
+                        <div class="simple-theme__category--card-header-secondary">
+                          <vs-row>
+                            <vs-col class="mb-8">
+                              <span @click="$to('category', post.category.slug)">
+                                <vs-chip color="#2E99A5" class="simple-theme__category--card-header-chip">{{ post.category.title }}</vs-chip>
+                              </span>
+                            </vs-col>
+                            <vs-col>
+                              <vue-clamp tag="h3" :max-lines="2" @click="$to('post', post.slug)" class="simple-theme__category--card-header-text">
+                                {{ post.title }}
+                              </vue-clamp>
+                            </vs-col>
+                          </vs-row>
+                        </div>
+                      </div>
+                    </vs-card>
+                  </vs-col>
+                </vs-row>
+              </template>
+            </vs-col>
+          </vs-row>
+        </vs-col>
+      </vs-row>
+    </template>
+  </div>
+</template>
+
+<script>
+import VueClamp from 'vue-clamp';
+export default {
+  name: "CategoryTypeOne",
+  components: {
+    VueClamp
+  },
+  data:()=>({
+    posts: [],
+    loading: false,
+  }),
+  watch: {
+    '$store.state.categories': 'fetchPosts'
+  },
+  computed: {
+    secondaryPost() {
+      return this.posts.slice(1, 4);
+    }
+  },
+  methods: {
+    fetchPosts() {
+      this.loading = true
+      let category = this.$store.state.categories[0];
+      this.$api.badasoBlog
+        .fetchPosts({
+          page: 1,
+          limit: 10,
+          category: category.slug
+        })
+        .then((res) => {
+          this.posts = res.data.posts.data;
+        })
+        .catch((err) => {
+          console.log('Error on fetching posts', err);
+        });
+      this.loading = false
+    },
+  }
+}
+</script>
