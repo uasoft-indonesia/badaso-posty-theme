@@ -16,7 +16,7 @@ Route::get('/search/{search}', function ($search) {
     return view('simple-theme::search', compact('search'));
 });
 
-Route::get($prefix . '/' . '{slug}', function ($slug) {
+Route::get($prefix.'/'.'{slug}', function ($slug) {
     $post = Post::select('title', 'summary')->where('slug', $slug)->first();
 
     return view('simple-theme::posts', compact('slug', 'post'));
