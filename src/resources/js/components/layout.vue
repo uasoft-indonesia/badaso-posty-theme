@@ -8,7 +8,7 @@
 export default {
   name: "SimpleThemeLayout",
   created() {
-    this.$store.dispatch("simpleTheme/fetchCategories");
+    this.$store.dispatch("fetchCategories");
   },
 }
 </script>

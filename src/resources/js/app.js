@@ -15,6 +15,7 @@ import SimpleThemeOther from "./components/other";
 import SimpleThemeInfo from "./components/info";
 import SimpleThemeSearch from "./components/search";
 import SimpleThemePagination from "./components/pagination";
+import SimpleThemePopular from "./components/popular-post";
 
 import moment from "moment"
 
@@ -58,11 +59,11 @@ Vue.prototype.$to = function (type, query = null) {
   }
 
   else if (type === 'newest') {
-    window.location.href = '/search/newest';
+    window.location.href = '/newest';
   }
 
   else if (type === 'popular') {
-    window.location.href = '/search/popular';
+    window.location.href = '/popular';
   }
 
   else if (type === 'search') {
@@ -93,6 +94,7 @@ Vue.component("SimpleThemeOther", SimpleThemeOther);
 Vue.component("SimpleThemeInfo", SimpleThemeInfo);
 Vue.component("SimpleThemeSearch", SimpleThemeSearch);
 Vue.component("SimpleThemePagination", SimpleThemePagination);
+Vue.component("SimpleThemePopular", SimpleThemePopular);
 
 Vue.prototype.$baseUrl = "/";
 

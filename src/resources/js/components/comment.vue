@@ -35,11 +35,9 @@
 </template>
 
 <script>
-import SimpleThemeReply from './reply';
 export default {
   name: "SimpleThemeComment",
   components: {
-    SimpleThemeReply
   },
   props: {
     comments: {
@@ -63,8 +61,8 @@ export default {
   }),
   methods: {
     postComment(parent, comment) {
-      this.$api.simpleTheme
-        .comment({
+      this.$api.badasoBlog
+        .addComment({
           postId: this.postId,
           content: comment,
           parentId: parent.id

@@ -146,8 +146,8 @@ export default {
   methods: {
     fetchPost() {
       this.loading = true
-      this.$api.simpleTheme
-        .read({
+      this.$api.badasoBlog
+        .fetchPost({
           slug: this.slug
         })
         .then((res) => {
@@ -170,7 +170,7 @@ export default {
       }
     },
     fetchComment() {
-      this.$api.simpleTheme
+      this.$api.badasoBlog
         .fetchComment({
           slug: this.slug,
           page: this.page,
@@ -187,8 +187,8 @@ export default {
         });
     },
     postComment() {
-      this.$api.simpleTheme
-        .comment({
+      this.$api.badasoBlog
+        .postComment({
           postId: this.post.id,
           content: this.comment,
         })

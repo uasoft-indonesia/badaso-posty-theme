@@ -149,7 +149,7 @@ export default {
     loading: false,
   }),
   watch: {
-    '$store.state.simpleTheme.categories': 'fetchPosts'
+    '$store.state.categories': 'fetchPosts'
   },
   computed: {
     secondaryPost() {
@@ -159,9 +159,9 @@ export default {
   methods: {
     fetchPosts() {
       this.loading = true
-      let category = this.$store.state.simpleTheme.categories[1]
-      this.$api.simpleTheme
-        .browse({
+      let category = this.$store.state.categories[1]
+      this.$api.badasoBlog
+        .fetchPosts({
           page: 1,
           limit: 10,
           category: category.slug

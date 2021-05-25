@@ -63,8 +63,8 @@ export default {
   methods: {
     fetchPosts() {
       this.loading = true
-      this.$api.simpleTheme
-        .browse({
+      this.$api.badasoBlog
+        .fetchPosts({
           page: 1,
           limit: 10
         })

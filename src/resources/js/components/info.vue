@@ -7,6 +7,7 @@
       <span class="simple-theme__showcase--icon-text ml-4">{{ $moment(post.publishedAt, "LL") }}</span>
       <vs-icon icon="edit" size="14px" class="ml-16" color="#4F4F4F"></vs-icon> 
       <span class="simple-theme__showcase--icon-text ml-4">{{ post.user.name }}</span>
+      <slot />
     </vs-col>
   </vs-row>
 </template>

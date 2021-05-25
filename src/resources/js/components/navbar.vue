@@ -65,7 +65,7 @@
         <vs-row vs-justify="start" vs-align="center" vs-type="flex" class="simple-theme__search--container">
           <vs-col vs-w="12" vs-align="center" vs-type="flex" vs-justify="center">
             <div style="display: inline-flex;">
-              <vs-input icon="search" placeholder="Search" v-model="search" class="simple-theme__search--input" :size="$isMobile ? 'small' : 'large'" @keyup.enter="() => getSearchedPosts()" />
+              <vs-input icon="search" placeholder="Search" v-model="search" :autofocus="overlay" class="simple-theme__search--input" :size="$isMobile ? 'small' : 'large'" @keyup.enter="() => getSearchedPosts()" />
               <vs-button color="#2E99A5" class="ml-16" type="relief" @click="() => getSearchedPosts()">Search</vs-button>
             </div>
             <div class="simple-theme__search--close">
@@ -104,7 +104,7 @@ export default {
   },
   computed: {
     getCategories() {
-      return this.$store.state.simpleTheme.categories
+      return this.$store.state.categories
     }
   },
   methods: {

@@ -8,6 +8,10 @@ Route::get('/category/{slug}', function ($slug) {
     return view('simple-theme::category', compact('slug'));
 });
 
+Route::get('/popular', function () {
+    return view('simple-theme::popular');
+});
+
 Route::get('/search/{search}', function ($search) {
     return view('simple-theme::search', compact('search'));
 });

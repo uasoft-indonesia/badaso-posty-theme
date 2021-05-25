@@ -48,13 +48,13 @@ export default {
   methods: {
     fetchPosts() {
       this.loading = true
-      this.$api.simpleTheme
-        .browse({
+      this.$api.badasoBlog
+        .fetchPopularPosts({
           page: 1,
           limit: 4
         })
         .then((res) => {
-          this.posts = res.data.posts.data
+          this.posts = res.data.posts
         })
         .catch((err) => {
           console.log('Error on fetching posts', err);

@@ -5,21 +5,24 @@
   <div v-else>
     <vs-row vs-type="flex" :vs-justify="$isMobile ? 'center' : 'flex-start'" :vs-align="$isMobile ? 'center' : 'start'">
       <vs-col vs-lg="9" vs-xs="12" vs-sm="12" :class="{ 'pr-30': !$isMobile }">
-        <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts.data && posts.data.length > 0">
+        <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts && posts.length > 0">
           <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
-            <span class="simple-theme__categories--tag">SEARCH: <b>{{ this.search }}</b></span>
+            <span class="simple-theme__categories--tag">TAG: <b>{{ posts[0].category.title }}</b></span>
           </vs-col>
           <vs-divider />
           <vs-col vs-w="12">
             <vs-card class="simple-theme__categories--card mb-30">
-              <div class="simple-theme__categories--card-content-container" v-for="(post, index) in posts.data" :key="index">
+              <div class="simple-theme__categories--card-content-container" v-for="(post, index) in posts" :key="index">
                 <vs-row vs-type="flex" vs-align="center" vs-justify="center">
                   <vs-col :class="{ 'mb-20': $isMobile, 'pr-16': !$isMobile }" vs-xs="12" vs-sm="12" vs-lg="5">
                     <img :src="post.thumbnail" @click="$to('post', post.slug)">
                   </vs-col>
                   <vs-col vs-xs="12" vs-sm="12" vs-lg="7">
                     <h3 @click="$to('post', post.slug)" class="simple-theme__categories--content-title">{{ post.title }}</h3>
-                    <simple-theme-info :post="post"></simple-theme-info>
+                    <simple-theme-info :post="post">
+                      <vs-icon icon="visibility" size="14px" class="ml-16" color="#4F4F4F"></vs-icon> 
+                      <span class="simple-theme__showcase--icon-text ml-4">{{ post.viewCount }}</span>
+                    </simple-theme-info>
                     <vue-clamp :max-lines="5" class="simple-theme__categories--card-description">
                       {{ post.summary }}
                       <template slot="after">
@@ -28,16 +31,13 @@
                     </vue-clamp>
                   </vs-col>
                   <vs-col vs-w="12">
-                    <vs-divider v-if="index !== posts.data.length - 1"/>
+                    <vs-divider v-if="index !== posts.length - 1"/>
                   </vs-col>
                 </vs-row>
               </div>
             </vs-card>
-            
-            <simple-theme-pagination v-model="page" class="mt-30 mb-30" :data="posts"></simple-theme-pagination>
           </vs-col>
         </vs-row>
-
         <vs-row v-else>
           0 result.
         </vs-row>
@@ -55,33 +55,32 @@ import VueClamp from 'vue-clamp';
 import PopularPost from './popular';
 import NewestPost from './newest';
 export default {
-  name: "SimpleThemeSearch",
+  name: "SimpleThemeCategory",
   components: {
     VueClamp,
     PopularPost,
     NewestPost
   },
   data:()=>({
-    search: "",
-    loading: false,
+    slug: "",
+    loading: true,
     posts: [],
     page: 1
   }),
   watch: {
     'page': 'next'
   },
-  created() {
-    this.search = window.location.pathname.split("/").pop();
+  mounted() {
+    this.slug = window.location.pathname.split("/").pop();
     this.fetchPosts();
   },
   methods: {
     fetchPosts() {
       this.loading = true
       this.$api.badasoBlog
-        .fetchPosts({
+        .fetchPopularPosts({
           page: 1,
           limit: 10,
-          search: this.search
         })
         .then((res) => {
           this.posts = res.data.posts;
@@ -94,13 +93,12 @@ export default {
     },
     next() {
       this.$api.badasoBlog
-        .fetchPosts({
+        .fetchPopularPosts({
           page: this.page,
           limit: 10,
-          search: this.search
         })
         .then((res) => {
-          this.posts.data = res.data.posts.data;
+          this.posts = res.data.posts;
           this.$scrollToTop();
         })
         .catch((err) => {
