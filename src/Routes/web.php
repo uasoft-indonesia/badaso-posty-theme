@@ -12,6 +12,10 @@ Route::get('/popular', function () {
     return view('simple-theme::popular');
 });
 
+Route::get('/newest', function () {
+    return view('simple-theme::newest');
+});
+
 Route::get('/search/{search}', function ($search) {
     return view('simple-theme::search', compact('search'));
 });

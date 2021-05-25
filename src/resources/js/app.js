@@ -16,6 +16,7 @@ import SimpleThemeInfo from "./components/info";
 import SimpleThemeSearch from "./components/search";
 import SimpleThemePagination from "./components/pagination";
 import SimpleThemePopular from "./components/popular-post";
+import SimpleThemeNewest from "./components/newest-post";
 
 import moment from "moment"
 
@@ -95,6 +96,7 @@ Vue.component("SimpleThemeInfo", SimpleThemeInfo);
 Vue.component("SimpleThemeSearch", SimpleThemeSearch);
 Vue.component("SimpleThemePagination", SimpleThemePagination);
 Vue.component("SimpleThemePopular", SimpleThemePopular);
+Vue.component("SimpleThemeNewest", SimpleThemeNewest);
 
 Vue.prototype.$baseUrl = "/";
 
