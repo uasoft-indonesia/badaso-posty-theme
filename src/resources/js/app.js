@@ -29,7 +29,7 @@ import store from "./store/store";
 
 let prefix = process.env.MIX_BLOG_POST_URL_PREFIX ?
 "/" + process.env.MIX_BLOG_POST_URL_PREFIX :
-"/"
+""
 
 Vue.config.productionTip = false;
 Vue.config.devtools = true;
@@ -43,7 +43,7 @@ Vue.prototype.$moment = (date, format) => {
 };
 Vue.prototype.$to = function (type, query = null) {
   if (type === 'post') {
-    window.location.href = prefix + query;
+    window.location.href = prefix + '/' + query;
   }
 
   else if (type === 'category') {
