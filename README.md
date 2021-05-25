@@ -20,10 +20,10 @@ npm install
 php artisan badaso-simple-theme:setup
 ```
 
-- Add the plugins to your `MIX_BADASO_PLUGINS` to `.env`. If you have another plugins installed, include them using delimiter comma (,).
+- Add the modules to your `MIX_BADASO_MODULES` to `.env`. If you have another modules installed, include them using delimiter comma (,).
 
 ```
-MIX_BADASO_PLUGINS=badaso-simple-theme
+MIX_BADASO_MODULES=badaso-simple-theme
 ```
 
 - Add new route to `web.php`.
