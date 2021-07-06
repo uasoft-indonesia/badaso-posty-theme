@@ -1,4 +1,4 @@
-# badaso-simple-theme
+# badaso/simple-theme
 Official theme and the first theme created by badaso team
 
 # Installation
