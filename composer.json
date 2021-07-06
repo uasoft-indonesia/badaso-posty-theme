@@ -1,6 +1,6 @@
 {
     "version": "1.0.0-alpha.1",
-    "name": "uasoft-indonesia/badaso-simple-theme",
+    "name": "@badaso/simple-theme",
     "description": "Official theme and the first theme created by badaso team",
     "keywords": [
         "laravel",
