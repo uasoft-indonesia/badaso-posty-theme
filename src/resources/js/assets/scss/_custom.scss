@@ -120,7 +120,7 @@ body {
   width: auto !important;
 }
 
-.simple-theme {
+.post-theme {
   &__navbar {
     height: 60px;
     background-color: #fff;
@@ -303,7 +303,7 @@ body {
     &--container {
       position: relative;
 
-      &:hover .simple-theme__showcase--overlay {
+      &:hover .post-theme__showcase--overlay {
         background: rgba(0, 0, 0, 0.5); /* Black see-through */
       }
     }

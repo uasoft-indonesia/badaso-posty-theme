@@ -18,9 +18,9 @@
     "license": "proprietary",
     "homepage": "https://badaso.uatech.co.id/",
     "support": {
-        "issues": "https://github.com/uasoft-indonesia/badaso-simple-theme/issues",
-        "discussion": "https://github.com/uasoft-indonesia/badaso-simple-theme/discussions",
-        "source": "https://github.com/uasoft-indonesia/badaso-simple-theme"
+        "issues": "https://github.com/uasoft-indonesia/badaso-post-theme/issues",
+        "discussion": "https://github.com/uasoft-indonesia/badaso-post-theme/discussions",
+        "source": "https://github.com/uasoft-indonesia/badaso-post-theme"
     },
     "type": "library",
     "require": {},
@@ -33,13 +33,13 @@
     "minimum-stability": "alpha",
     "autoload": {
         "psr-4": {
-            "Uasoft\\Badaso\\Theme\\SimpleTheme\\": "src/"
+            "Uasoft\\Badaso\\Theme\\PostTheme\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Uasoft\\Badaso\\Theme\\SimpleTheme\\Providers\\SimpleThemeProvider"
+                "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
             ]
         }
     }

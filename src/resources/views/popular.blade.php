@@ -1,13 +1,13 @@
-@extends('simple-theme::layouts.default')
+@extends('post-theme::layouts.default')
 
 @section('title', 'Popular Posts')
 
-@section('description', 'Popular post badaso simple theme.')
+@section('description', 'Popular post badaso post theme.')
 
 @section('url', url('/popular'))
 
 @section('content')
 
-<simple-theme-popular></simple-theme-popular>
+<post-theme-popular></post-theme-popular>
 
 @endsection

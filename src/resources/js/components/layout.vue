@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "SimpleThemeLayout",
+  name: "PostThemeLayout",
   created() {
     this.$store.dispatch("fetchCategories");
   },

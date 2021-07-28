@@ -1,10 +1,10 @@
 <?php
 
-namespace Uasoft\Badaso\Theme\SimpleTheme\Facades;
+namespace Uasoft\Badaso\Theme\PostTheme\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class SimpleTheme extends Facade
+class PostTheme extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class SimpleTheme extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'badaso-simple-theme';
+        return 'badaso-post-theme';
     }
 }
