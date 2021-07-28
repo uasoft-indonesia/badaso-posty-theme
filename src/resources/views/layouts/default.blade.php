@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title') | Simple Theme</title>
+    <title>@yield('title') | Post Theme</title>
     <meta content="@yield('url')" property="og:url">
     <meta content="@yield('title')" property="og:title">
-    <meta content="Simple Theme - @yield('description')..." property="og:description">
+    <meta content="Post Theme - @yield('description')..." property="og:description">
     @hasSection('image')<meta content="@yield('image')" property="og:image">@endif
     <meta content="article" property="og:type">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -30,14 +30,14 @@
 </head>
 
 <body>
-    <div id="simple-theme">
-        <simple-theme-layout>
-            <simple-theme-navbar class="mb-30"></simple-theme-navbar>
+    <div id="post-theme">
+        <post-theme-layout>
+            <post-theme-navbar class="mb-30"></post-theme-navbar>
             @yield('content')
-            <simple-theme-footer></simple-theme-footer>
-        </simple-theme-layout>
+            <post-theme-footer></post-theme-footer>
+        </post-theme-layout>
     </div>
-    <script src="{{ mix('js/simple-theme.js') }}"></script>
+    <script src="{{ mix('js/post-theme.js') }}"></script>
 </body>
 
 </html>

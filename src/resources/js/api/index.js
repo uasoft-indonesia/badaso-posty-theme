@@ -1,6 +1,6 @@
-import blogModules from "../../../../../badaso-blog-module/src/resources/js/api/modules/badaso-blog";
+import postModules from "../../../../../post-module/src/resources/js/api/modules/badaso-blog.js";
 
 let exported = {};
-exported.badasoBlog = blogModules;
+exported.badasoPost = postModules;
 
 export default exported

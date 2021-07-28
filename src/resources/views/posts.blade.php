@@ -1,4 +1,4 @@
-@extends('simple-theme::layouts.default')
+@extends('post-theme::layouts.default')
 
 @section('title', $post->title)
 
@@ -8,6 +8,6 @@
 
 @section('content')
 
-<simple-theme-post></simple-theme-post>
+<post-theme-post></post-theme-post>
 
 @endsection

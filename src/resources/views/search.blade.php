@@ -1,4 +1,4 @@
-@extends('simple-theme::layouts.default')
+@extends('post-theme::layouts.default')
 
 @section('title', $search)
 
@@ -8,6 +8,6 @@
 
 @section('content')
 
-<simple-theme-search></simple-theme-search>
+<post-theme-search></post-theme-search>
 
 @endsection

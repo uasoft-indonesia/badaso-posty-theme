@@ -1,10 +1,10 @@
 <template>
-  <vs-pagination :total="data.lastPage" @input="setPages" v-model="page" class="simple-theme__pagination"></vs-pagination>
+  <vs-pagination :total="data.lastPage" @input="setPages" v-model="page" class="post-theme__pagination"></vs-pagination>
 </template>
 
 <script>
 export default {
-  name: "SimpleThemePagination",
+  name: "PostThemePagination",
   props: {
     data: {
       required: true,

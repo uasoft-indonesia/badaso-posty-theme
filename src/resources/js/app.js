@@ -2,21 +2,21 @@ import Vue from "vue";
 import Vuesax from "vuesax";
 
 import { Datetime } from "vue-datetime";
-import SimpleThemeLayout from "./components/layout";
-import SimpleThemeNavbar from "./components/navbar";
-import SimpleThemeHome from "./components/home";
+import PostThemeLayout from "./components/layout";
+import PostThemeNavbar from "./components/navbar";
+import PostThemeHome from "./components/home";
 import CategoryTypeOne from "./components/category-type-one";
 import CategoryTypeTwo from "./components/category-type-two";
-import SimpleThemeFooter from "./components/footer";
-import SimpleThemeCategory from "./components/category";
-import SimpleThemePost from "./components/post";
-import SimpleThemeComment from "./components/comment";
-import SimpleThemeOther from "./components/other";
-import SimpleThemeInfo from "./components/info";
-import SimpleThemeSearch from "./components/search";
-import SimpleThemePagination from "./components/pagination";
-import SimpleThemePopular from "./components/popular-post";
-import SimpleThemeNewest from "./components/newest-post";
+import PostThemeFooter from "./components/footer";
+import PostThemeCategory from "./components/category";
+import PostThemePost from "./components/post";
+import PostThemeComment from "./components/comment";
+import PostThemeOther from "./components/other";
+import PostThemeInfo from "./components/info";
+import PostThemeSearch from "./components/search";
+import PostThemePagination from "./components/pagination";
+import PostThemePopular from "./components/popular-post";
+import PostThemeNewest from "./components/newest-post";
 
 import moment from "moment"
 
@@ -82,24 +82,24 @@ Vue.prototype.$constants = {
   DESKTOP: "desktop",
 };
 
-Vue.component("SimpleThemeLayout", SimpleThemeLayout);
-Vue.component("SimpleThemeNavbar", SimpleThemeNavbar);
-Vue.component("SimpleThemeHome", SimpleThemeHome);
+Vue.component("PostThemeLayout", PostThemeLayout);
+Vue.component("PostThemeNavbar", PostThemeNavbar);
+Vue.component("PostThemeHome", PostThemeHome);
 Vue.component("CategoryTypeOne", CategoryTypeOne);
 Vue.component("CategoryTypeTwo", CategoryTypeTwo);
-Vue.component("SimpleThemeFooter", SimpleThemeFooter);
-Vue.component("SimpleThemeCategory", SimpleThemeCategory);
-Vue.component("SimpleThemePost", SimpleThemePost);
-Vue.component("SimpleThemeComment", SimpleThemeComment);
-Vue.component("SimpleThemeOther", SimpleThemeOther);
-Vue.component("SimpleThemeInfo", SimpleThemeInfo);
-Vue.component("SimpleThemeSearch", SimpleThemeSearch);
-Vue.component("SimpleThemePagination", SimpleThemePagination);
-Vue.component("SimpleThemePopular", SimpleThemePopular);
-Vue.component("SimpleThemeNewest", SimpleThemeNewest);
+Vue.component("PostThemeFooter", PostThemeFooter);
+Vue.component("PostThemeCategory", PostThemeCategory);
+Vue.component("PostThemePost", PostThemePost);
+Vue.component("PostThemeComment", PostThemeComment);
+Vue.component("PostThemeOther", PostThemeOther);
+Vue.component("PostThemeInfo", PostThemeInfo);
+Vue.component("PostThemeSearch", PostThemeSearch);
+Vue.component("PostThemePagination", PostThemePagination);
+Vue.component("PostThemePopular", PostThemePopular);
+Vue.component("PostThemeNewest", PostThemeNewest);
 
 Vue.prototype.$baseUrl = "/";
 
 const app = new Vue({
   store,
-}).$mount("#simple-theme");
+}).$mount("#post-theme");

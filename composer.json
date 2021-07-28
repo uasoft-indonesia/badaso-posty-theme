@@ -1,7 +1,7 @@
 {
     "version": "1.0.0-alpha.1",
-    "name": "badaso/simple-theme",
-    "description": "Official theme and the first theme created by badaso team",
+    "name": "badaso/post-theme",
+    "description": "Official theme for post system on badaso",
     "keywords": [
         "laravel",
         "admin",
@@ -11,14 +11,16 @@
         "vue",
         "generator",
         "blog",
-        "badaso"
+        "badaso",
+        "blog",
+        "news"
     ],
     "license": "proprietary",
     "homepage": "https://badaso.uatech.co.id/",
     "support": {
-        "issues": "https://github.com/uasoft-indonesia/badaso-simple-theme/issues",
-        "discussion": "https://github.com/uasoft-indonesia/badaso-simple-theme/discussions",
-        "source": "https://github.com/uasoft-indonesia/badaso-simple-theme"
+        "issues": "https://github.com/uasoft-indonesia/badaso-post-theme/issues",
+        "discussion": "https://github.com/uasoft-indonesia/badaso-post-theme/discussions",
+        "source": "https://github.com/uasoft-indonesia/badaso-post-theme"
     },
     "type": "library",
     "require": {},
@@ -31,13 +33,13 @@
     "minimum-stability": "alpha",
     "autoload": {
         "psr-4": {
-            "Uasoft\\Badaso\\Theme\\SimpleTheme\\": "src/"
+            "Uasoft\\Badaso\\Theme\\PostTheme\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Uasoft\\Badaso\\Theme\\SimpleTheme\\Providers\\SimpleThemeProvider"
+                "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
             ]
         }
     }

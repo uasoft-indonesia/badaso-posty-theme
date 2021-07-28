@@ -22,7 +22,7 @@
         <carousel :thumbnails="getThumbnails()" class="mb-30"></carousel>
         <category-type-one class="mb-30"></category-type-one>
         <category-type-two class="mb-30"></category-type-two>
-        <simple-theme-other :posts="otherPost" :loading="loading" class="mb-30"></simple-theme-other>
+        <post-theme-other :posts="otherPost" :loading="loading" class="mb-30"></post-theme-other>
       </vs-col>
       <vs-col vs-lg="3" class="sticky">
         <popular-post class="mb-30"></popular-post>
@@ -37,7 +37,7 @@ import Carousel from './carousel';
 import NewestPost from './newest';
 import PopularPost from './popular';
 export default {
-  name: "SimpleThemeHome",
+  name: "PostThemeHome",
   components: {
     Carousel,
     NewestPost,
@@ -63,7 +63,7 @@ export default {
   methods: {
     fetchPosts() {
       this.loading = true
-      this.$api.badasoBlog
+      this.$api.badasoPost
         .fetchPosts({
           page: 1,
           limit: 10

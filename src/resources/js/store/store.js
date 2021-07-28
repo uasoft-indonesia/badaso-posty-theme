@@ -6,7 +6,7 @@ export default new Vuex.Store({
   namespaced: true,
   state: {
     categories: [],
-    earchedPosts: [],
+    searchedPosts: [],
   },
   mutations: {
     SET_CATEGORIES(state, categories) {
@@ -18,7 +18,7 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchCategories({commit}) {
-      await api.badasoBlog
+      await api.badasoPost
         .fetchCategories()
         .then((res) => {
           commit("SET_CATEGORIES", res.data.categories)

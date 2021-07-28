@@ -1,42 +1,42 @@
 <template>
-  <footer class="simple-theme__footer">
-    <vs-card class="simple-theme__footer--card mb-0 w-100">
+  <footer class="post-theme__footer">
+    <vs-card class="post-theme__footer--card mb-0 w-100">
       <vs-row vs-justify="space-around" vs-align="flex-start">
         <vs-col class="mb-24" vs-xs="12" vs-sm="12" vs-lg="4">
-          <h3 class="simple-theme__footer--title mb-4">{{ title }}</h3>
-          <span class="simple-theme__footer--copyright">© 2021 Simple Theme - Badaso<br>All rights reserved.</span>
+          <h3 class="post-theme__footer--title mb-4">{{ title }}</h3>
+          <span class="post-theme__footer--copyright">© 2021 Post Theme - Badaso<br>All rights reserved.</span>
         </vs-col>
         <vs-col class="mb-16" vs-xs="12" vs-sm="12" vs-lg="2">
-          <h3 class="simple-theme__footer--links mb-8">Quick Links</h3>
-          <ul class="simple-theme__footer--links-items">
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">Services</a></li>
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">About</a></li>
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">News</a></li>
-            <li class="simple-theme__footer--links-item"><a href="#">Blog</a></li>
+          <h3 class="post-theme__footer--links mb-8">Quick Links</h3>
+          <ul class="post-theme__footer--links-items">
+            <li class="post-theme__footer--links-item mr-4"><a href="#">Services</a></li>
+            <li class="post-theme__footer--links-item mr-4"><a href="#">About</a></li>
+            <li class="post-theme__footer--links-item mr-4"><a href="#">News</a></li>
+            <li class="post-theme__footer--links-item"><a href="#">Post</a></li>
           </ul>
         </vs-col>
         <vs-col class="mb-16" vs-xs="12" vs-sm="12" vs-lg="2">
-          <h3 class="simple-theme__footer--links mb-8">Menu</h3>
-          <ul class="simple-theme__footer--links-items">
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">Our Service</a></li>
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">Our Team</a></li>
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">Our News</a></li>
-            <li class="simple-theme__footer--links-item"><a href="#">Our Blog</a></li>
+          <h3 class="post-theme__footer--links mb-8">Menu</h3>
+          <ul class="post-theme__footer--links-items">
+            <li class="post-theme__footer--links-item mr-4"><a href="#">Our Service</a></li>
+            <li class="post-theme__footer--links-item mr-4"><a href="#">Our Team</a></li>
+            <li class="post-theme__footer--links-item mr-4"><a href="#">Our News</a></li>
+            <li class="post-theme__footer--links-item"><a href="#">Our Post</a></li>
           </ul>
         </vs-col>
         <vs-col class="mb-24" vs-xs="12" vs-sm="12" vs-lg="2">
-          <h3 class="simple-theme__footer--links mb-8">About Us</h3>
-          <ul class="simple-theme__footer--links-items">
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">About Us</a></li>
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">Testimonials</a></li>
-            <li class="simple-theme__footer--links-item mr-4"><a href="#">Case Studies</a></li>
-            <li class="simple-theme__footer--links-item"><a href="#">Awards</a></li>
+          <h3 class="post-theme__footer--links mb-8">About Us</h3>
+          <ul class="post-theme__footer--links-items">
+            <li class="post-theme__footer--links-item mr-4"><a href="#">About Us</a></li>
+            <li class="post-theme__footer--links-item mr-4"><a href="#">Testimonials</a></li>
+            <li class="post-theme__footer--links-item mr-4"><a href="#">Case Studies</a></li>
+            <li class="post-theme__footer--links-item"><a href="#">Awards</a></li>
           </ul>
         </vs-col>
       </vs-row>
     </vs-card>
-    <vs-card class="simple-theme__footer--card-bottom mb-0">
-      <vs-row vs-type="flex" vs-justify="center" vs-align="center" class="simple-theme__footer--social-media">
+    <vs-card class="post-theme__footer--card-bottom mb-0">
+      <vs-row vs-type="flex" vs-justify="center" vs-align="center" class="post-theme__footer--social-media">
         <vs-col v-if="socialMedia.facebook" vs-xs="3" vs-sm="3" vs-lg="1" :class="{ 'text-center': true, 'mb-16': $isMobile }">
           <a :href="socialMedia.facebook"><img src="./../assets/images/facebook.png" alt="Facebook's Icon" sizes="21px"></a>
         </vs-col>
@@ -72,7 +72,7 @@
 
 <script>
 export default {
-  name: "SimpleThemeFooter",
+  name: "PostThemeFooter",
   data:()=>({
     title: "",
     socialMedia: {

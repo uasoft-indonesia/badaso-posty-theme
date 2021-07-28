@@ -1,6 +1,6 @@
 <?php
 
-namespace Uasoft\Badaso\Theme\SimpleTheme\Helpers;
+namespace Uasoft\Badaso\Theme\PostTheme\Helpers;
 
 class CaseConvert
 {
