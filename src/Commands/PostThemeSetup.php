@@ -1,11 +1,11 @@
 <?php
 
-namespace Uasoft\Badaso\Theme\SimpleTheme\Commands;
+namespace Uasoft\Badaso\Theme\PostTheme\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-class SimpleThemeSetup extends Command
+class PostThemeSetup extends Command
 {
     protected $file;
     /**
@@ -13,14 +13,14 @@ class SimpleThemeSetup extends Command
      *
      * @var string
      */
-    protected $name = 'badaso-simple-theme:setup';
+    protected $name = 'badaso-post-theme:setup';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Setup Badaso Simple Theme';
+    protected $description = 'Setup Badaso Post Theme';
 
     /**
      * Create a new command instance.
@@ -49,7 +49,7 @@ class SimpleThemeSetup extends Command
     {
         return [
             'MIX_FACEBOOK_APP_ID' => '',
-            'MIX_NAVBAR_TITLE'    => '"Simple Theme"',
+            'MIX_NAVBAR_TITLE'    => '"Post Theme"',
             'MIX_FACEBOOK_URL'    => '',
             'MIX_TWITTER_URL'     => '',
             'MIX_INSTAGRAM_URL'   => '',
@@ -109,14 +109,14 @@ class SimpleThemeSetup extends Command
     {
         // mix
         $mix_file = base_path('webpack.mix.js');
-        $search = 'Simple Theme';
+        $search = 'Post Theme';
 
         if ($this->checkExist($mix_file, $search)) {
             $data =
                 <<<'EOT'
 
-        // Simple Theme
-        mix.js("vendor/uasoft-indonesia/badaso-simple-theme/src/resources/js/app.js", "public/js/simple-theme.js");
+        // Post Theme
+        mix.js("vendor/badaso/post-theme/src/resources/js/app.js", "public/js/post-theme.js");
         mix.webpackConfig({ resolve: { alias: { 'vue$': 'vue/dist/vue.common.js' } } });
         EOT;
 

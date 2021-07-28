@@ -1,13 +1,13 @@
-@extends('simple-theme::layouts.default')
+@extends('post-theme::layouts.default')
 
 @section('title', 'Newest Posts')
 
-@section('description', 'Newest post badaso simple theme.')
+@section('description', 'Newest post badaso post theme.')
 
 @section('url', url('/newest'))
 
 @section('content')
 
-<simple-theme-newest></simple-theme-newest>
+<post-theme-newest></post-theme-newest>
 
 @endsection
