@@ -43,6 +43,14 @@ class PostThemeSetup extends Command
         $this->addingBadasoEnv();
         $this->updateWebpackMix();
         $this->updatePackageJson();
+        $this->publishConfig();
+    }
+
+    protected function publishConfig()
+    {
+        Artisan::call('vendor:publish', ['--tag' => 'BadasoPostTheme']);
+
+        $this->info('Badaso post theme provider published');
     }
 
     protected function envListUpload()

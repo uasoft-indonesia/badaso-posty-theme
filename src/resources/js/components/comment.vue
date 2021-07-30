@@ -2,7 +2,7 @@
   <div>
     <vs-row v-if="comments" vs-align="flex-start" vs-justify="flex-start" vs-type="flex" class="mt-16" style="flex-wrap: nowrap;">
       <vs-col class="m-0 w-auto" vs-w="1">
-        <vs-avatar :src="'/storage/' + comments.user.avatar" class="m-0" />
+        <vs-avatar :src="getMediaBaseUrl + comments.user.avatar" class="m-0" />
       </vs-col>
       <vs-col class="pl-8 mb-16" vs-w="11">
         <p class="post-theme__comments--user mb-8">{{ comments.user.name }}</p>
@@ -59,6 +59,11 @@ export default {
     comment: "",
     reply: false
   }),
+  computed: {
+    getMediaBaseUrl() {
+      return this.$store.state.meta.mediaBaseUrl || '/storage/'
+    },
+  },
   methods: {
     postComment(parent, comment) {
       this.$api.badasoPost

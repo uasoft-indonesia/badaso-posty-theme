@@ -15,7 +15,7 @@
           <div class="post-theme__other--card-content-container" v-for="(post, index) in posts" :key="index">
             <vs-row vs-type="flex" vs-justify="center" vs-align="flex-start">
               <vs-col vs-xs="12" vs-sm="12" vs-lg="4">
-                <img :src="post.thumbnail" @click="$to('post', post.slug)" :class="{pointer: true, 'mb-20': $isMobile}">
+                <img :src="getMediaBaseUrl + post.thumbnail" @click="$to('post', post.slug)" :class="{pointer: true, 'mb-20': $isMobile}">
               </vs-col>
               <vs-col vs-xs="12" vs-sm="12" vs-lg="8" class="pl-24">
                 <span @click="$to('post', post.slug)" class="post-theme__other--content-title">{{ post.title }}</span>
@@ -63,6 +63,11 @@ export default {
       type: Boolean,
       default: false
     }
-  }
+  },
+  computed: {
+    getMediaBaseUrl() {
+      return this.$store.state.meta.mediaBaseUrl || '/storage/'
+    },
+  },
 }
 </script>

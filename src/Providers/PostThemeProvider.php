@@ -29,6 +29,10 @@ class PostThemeProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
 
         $this->publishes([
+            __DIR__.'/../Config/badaso-post-theme.php' => config_path('badaso-post-theme.php'),
+        ], 'BadasoPostTheme');
+
+        $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/uasoft-indonesia/post-theme'),
         ], 'BadasoPostThemeViews');
     }

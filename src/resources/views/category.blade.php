@@ -1,10 +1,10 @@
 @extends('post-theme::layouts.default')
 
-@section('title', ucfirst($slug))
+@section('title', ucfirst($category))
 
-@section('description', ucfirst($slug) . ' category badaso post theme.')
+@section('description', ucfirst($category) . ' category badaso post theme.')
 
-@section('url', url('/category/' . $slug))
+@section('url', url('/category/' . $category))
 
 @section('content')
 
