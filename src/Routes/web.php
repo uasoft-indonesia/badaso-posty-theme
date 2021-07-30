@@ -2,14 +2,14 @@
 
 use Uasoft\Badaso\Module\Post\Models\Post;
 
-$themePrefix = config('badaso-post-theme') ? config('badaso-post-theme.post_theme_prefix') . '/' : '';
+$themePrefix = config('badaso-post-theme') ? config('badaso-post-theme.post_theme_prefix').'/' : '';
 
 Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
-    'any' => '^(?!'.config('badaso.api_route_prefix').'|'.config('badaso.admin_panel_route_prefix').').*$'
+    'any' => '^(?!'.config('badaso.api_route_prefix').'|'.config('badaso.admin_panel_route_prefix').').*$',
 ]], function () {
-    $prefix = config('badaso-post.post_post_url_prefix') ? config('badaso-post.post_post_url_prefix') . '/' : '';
+    $prefix = config('badaso-post.post_post_url_prefix') ? config('badaso-post.post_post_url_prefix').'/' : '';
 
-    Route::get('/'.$prefix.'{slug?}', function ($slug = null) {    
+    Route::get('/'.$prefix.'{slug?}', function ($slug = null) {
         if (empty($slug)) {
             return view('post-theme::index');
         }
@@ -20,6 +20,7 @@ Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
             if (empty($category)) {
                 return view('post-theme::errors.404');
             }
+
             return view('post-theme::category', compact('category'));
         }
 
@@ -29,6 +30,7 @@ Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
             if (empty($search)) {
                 return view('post-theme::errors.404');
             }
+
             return view('post-theme::search', compact('search'));
         }
 
