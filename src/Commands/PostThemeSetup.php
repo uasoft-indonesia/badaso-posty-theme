@@ -56,6 +56,7 @@ class PostThemeSetup extends Command
     protected function envListUpload()
     {
         return [
+            'MIX_POST_THEME_PREFIX' => '',
             'MIX_FACEBOOK_APP_ID' => '',
             'MIX_NAVBAR_TITLE'    => '"Post Theme"',
             'MIX_FACEBOOK_URL'    => '',

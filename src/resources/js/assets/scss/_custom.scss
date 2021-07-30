@@ -142,12 +142,13 @@ body {
     &--title {
       height: 100%;
 
-      & a {
+      & * {
         font-weight: bold;
         font-size: 18px;
         line-height: 22px;
         text-transform: uppercase;
         color: #4F4F4F;
+        cursor: pointer;
 
         @media screen and (min-width: $xl) {
           font-size: 24px;
@@ -216,7 +217,8 @@ body {
         margin: 35px 0;
       }
       
-      & a {
+      & * {
+        cursor: pointer;
         color: #fff;
         text-transform: uppercase;
       }
@@ -1183,6 +1185,12 @@ body {
         padding: 0 !important;
         margin-bottom: 0 !important;
       }
+    }
+
+    &--thumbnail {
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
     }
 
     &--content {

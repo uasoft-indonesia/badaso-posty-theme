@@ -2,7 +2,7 @@
 
 use Uasoft\Badaso\Module\Post\Models\Post;
 
-$themePrefix = config('badaso-post-theme.post_theme_prefix') ? config('badaso-post-theme.post_theme_prefix') . '/' : '';
+$themePrefix = config('badaso-post-theme') ? config('badaso-post-theme.post_theme_prefix') . '/' : '';
 
 Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
     'any' => '^(?!'.config('badaso.api_route_prefix').'|'.config('badaso.admin_panel_route_prefix').').*$'

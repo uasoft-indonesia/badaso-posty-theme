@@ -20,12 +20,4 @@ npm install
 php artisan badaso-post-theme:setup
 ```
 
-- Add new route to `web.php`.
-
-```php
-Route::get('/{any?}', function () {
-    return view('post-theme::index');
-})->where('any', '^(?!'.config('badaso.api_route_prefix').'|'.config('badaso.admin_panel_route_prefix').').*$');
-```
-
 - Fill the other variables in `.env` file.
