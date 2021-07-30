@@ -76,7 +76,7 @@ Vue.prototype.$to = function (type, query = null) {
   }
 
   else {
-    window.location.href = '/404';
+    window.location.href = themePrefix + '/404';
   }
 }
 Vue.prototype.$isMobile = Math.min(window.screen.width, window.screen.height) < 768;
