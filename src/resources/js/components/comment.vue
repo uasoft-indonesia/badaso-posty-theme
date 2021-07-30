@@ -22,7 +22,7 @@
     <vs-row v-if="comments.children && comments.children.length > 0" class="pl-40">
         <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" class="mt-8 mb-16" v-for="(child, childIndex) in comments.children" :key="childIndex">
           <vs-col class="m-0 w-auto" vs-w="1">
-            <vs-avatar :src="'/storage/' + child.user.avatar" class="m-0" />
+            <vs-avatar :src="getMediaBaseUrl + child.user.avatar" class="m-0" />
           </vs-col>
           <vs-col class="pl-8" vs-w="11">
             <p class="post-theme__comments--user mb-8">{{ child.user.name }}</p>
