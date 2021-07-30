@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     categories: [],
     searchedPosts: [],
+    meta: {}
   },
   mutations: {
     SET_CATEGORIES(state, categories) {
@@ -15,12 +16,16 @@ export default new Vuex.Store({
     SET_SEARCHED_POST(state, posts) {
       state.searchedPosts = posts
     },
+    SET_META(state, meta) {
+      state.meta = meta
+    }
   },
   actions: {
     async fetchCategories({commit}) {
       await api.badasoPost
         .fetchCategories()
         .then((res) => {
+          commit("SET_META", res.meta)
           commit("SET_CATEGORIES", res.data.categories)
         })
         .catch((err) => {

@@ -20,18 +20,4 @@ npm install
 php artisan badaso-post-theme:setup
 ```
 
-- Add the modules to your `MIX_BADASO_MODULES` to `.env`. If you have another modules installed, include them using delimiter comma (,).
-
-```
-MIX_BADASO_MODULES=post-theme
-```
-
-- Add new route to `web.php`.
-
-```php
-Route::get('{any}', function () {
-  return view('post-theme::index');
-})->where('any', '.*');
-```
-
 - Fill the other variables in `.env` file.

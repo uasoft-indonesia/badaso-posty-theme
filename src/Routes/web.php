@@ -2,26 +2,52 @@
 
 use Uasoft\Badaso\Module\Post\Models\Post;
 
-$prefix = config('badaso-post.post_post_url_prefix') ? '/'.config('badaso-post.post_post_url_prefix') : '';
+$themePrefix = config('badaso-post-theme') ? config('badaso-post-theme.post_theme_prefix').'/' : '';
 
-Route::get('/category/{slug}', function ($slug) {
-    return view('post-theme::category', compact('slug'));
-});
+Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
+    'any' => '^(?!'.config('badaso.api_route_prefix').'|'.config('badaso.admin_panel_route_prefix').').*$',
+]], function () {
+    $prefix = config('badaso-post.post_post_url_prefix') ? config('badaso-post.post_post_url_prefix').'/' : '';
 
-Route::get('/popular', function () {
-    return view('post-theme::popular');
-});
+    Route::get('/'.$prefix.'{slug?}', function ($slug = null) {
+        if (empty($slug)) {
+            return view('post-theme::index');
+        }
 
-Route::get('/newest', function () {
-    return view('post-theme::newest');
-});
+        if (strpos($slug, 'category/') !== false) {
+            $category = explode('/', $slug)[1];
 
-Route::get('/search/{search}', function ($search) {
-    return view('post-theme::search', compact('search'));
-});
+            if (empty($category)) {
+                return view('post-theme::errors.404');
+            }
 
-Route::get($prefix.'/'.'{slug}', function ($slug) {
-    $post = Post::select('title', 'summary')->where('slug', $slug)->first();
+            return view('post-theme::category', compact('category'));
+        }
 
-    return view('post-theme::posts', compact('slug', 'post'));
+        if (strpos($slug, 'search/') !== false) {
+            $search = explode('/', $slug)[1];
+
+            if (empty($search)) {
+                return view('post-theme::errors.404');
+            }
+
+            return view('post-theme::search', compact('search'));
+        }
+
+        if ($slug === 'popular') {
+            return view('post-theme::popular');
+        }
+
+        if ($slug === 'newest') {
+            return view('post-theme::newest');
+        }
+
+        $post = Post::select('title', 'summary')->where('slug', $slug)->first();
+
+        if (empty($post)) {
+            return view('post-theme::errors.404');
+        }
+
+        return view('post-theme::posts', compact('slug', 'post'));
+    })->where('slug', '^(?!category|popular|newest|search).*$');
 });

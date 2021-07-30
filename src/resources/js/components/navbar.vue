@@ -5,7 +5,7 @@
         <vs-icon icon="menu" size="24px" @click="() => open = !open"></vs-icon>
       </vs-col>
       <vs-col vs-xs="8" vs-sm="8" vs-lg="7" class="post-theme__navbar--title" vs-justify="start" vs-align="center" vs-type="flex">
-        <a href="/" :class="{ 'ml-16': $isMobile, 'ml-32': !$isMobile }">{{ title }}</a>
+        <div @click="$to('home')" :class="{ 'ml-16': $isMobile, 'ml-32': !$isMobile }">{{ title }}</div>
       </vs-col>
       <vs-col vs-xs="2" vs-sm="2" vs-lg="4" class="post-theme__navbar--search" vs-justify="center" vs-align="center" vs-type="flex">
         <template v-if="$isMobile">
@@ -45,8 +45,8 @@
       </vs-col>
     </vs-row>
     <vs-row class="mb-30 post-theme__menu" vs-justify="start" vs-align="center" vs-type="flex" :class="{ open: open }">
-      <vs-col vs-xs="4" vs-sm="4" vs-lg="2" class="post-theme__menu--item"><a href="/">HOME</a></vs-col>
-      <vs-col vs-xs="4" vs-sm="4" vs-lg="2" class="post-theme__menu--item" v-for="(category, index) in getCategories" :key="index"><a :href="'/category/' + category.slug">{{ category.title }}</a></vs-col>
+      <vs-col vs-xs="4" vs-sm="4" vs-lg="2" class="post-theme__menu--item"><div @click="$to('home')">HOME</div></vs-col>
+      <vs-col vs-xs="4" vs-sm="4" vs-lg="2" class="post-theme__menu--item" v-for="(category, index) in getCategories" :key="index"><div @click="$to('category', category.slug)">{{ category.title }}</div></vs-col>
     </vs-row>
 
     <div class="post-theme__search--overlay" v-if="overlay">

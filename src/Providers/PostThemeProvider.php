@@ -27,6 +27,10 @@ class PostThemeProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'badaso-post');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'post-theme');
         $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
+        
+        $this->publishes([
+            __DIR__.'/../Config/badaso-post-theme.php' => config_path('badaso-post-theme.php'),
+        ], 'BadasoPostTheme');
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/uasoft-indonesia/post-theme'),

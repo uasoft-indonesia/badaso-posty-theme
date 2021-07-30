@@ -43,22 +43,31 @@ class PostThemeSetup extends Command
         $this->addingBadasoEnv();
         $this->updateWebpackMix();
         $this->updatePackageJson();
+        $this->publishConfig();
+    }
+
+    protected function publishConfig()
+    {
+        Artisan::call('vendor:publish', ['--tag' => 'BadasoPostTheme']);
+
+        $this->info('Badaso post theme provider published');
     }
 
     protected function envListUpload()
     {
         return [
-            'MIX_FACEBOOK_APP_ID' => '',
-            'MIX_NAVBAR_TITLE'    => '"Post Theme"',
-            'MIX_FACEBOOK_URL'    => '',
-            'MIX_TWITTER_URL'     => '',
-            'MIX_INSTAGRAM_URL'   => '',
-            'MIX_VIMEO_URL'       => '',
-            'MIX_PATH_URL'        => '',
-            'MIX_SKYPE_URL'       => '',
-            'MIX_TELEGRAM_URL'    => '',
-            'MIX_GOOGLE_URL'      => '',
-            'MIX_YOUTUBE_URL'     => '',
+            'MIX_POST_THEME_PREFIX' => '',
+            'MIX_FACEBOOK_APP_ID'   => '',
+            'MIX_NAVBAR_TITLE'      => '"Post Theme"',
+            'MIX_FACEBOOK_URL'      => '',
+            'MIX_TWITTER_URL'       => '',
+            'MIX_INSTAGRAM_URL'     => '',
+            'MIX_VIMEO_URL'         => '',
+            'MIX_PATH_URL'          => '',
+            'MIX_SKYPE_URL'         => '',
+            'MIX_TELEGRAM_URL'      => '',
+            'MIX_GOOGLE_URL'        => '',
+            'MIX_YOUTUBE_URL'       => '',
         ];
     }
 
