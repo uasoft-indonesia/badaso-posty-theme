@@ -19,5 +19,3 @@ npm install
 ```
 php artisan badaso-post-theme:setup
 ```
-
-- Fill the other variables in `.env` file.
