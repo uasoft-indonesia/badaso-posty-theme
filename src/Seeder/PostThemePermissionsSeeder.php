@@ -4,6 +4,7 @@ namespace Database\Seeders\Badaso\PostTheme;
 
 use Illuminate\Database\Seeder;
 use Uasoft\Badaso\Models\Permission;
+use Uasoft\Badaso\Models\Role;
 
 class PostThemePermissionsSeeder extends Seeder
 {
@@ -17,11 +18,15 @@ class PostThemePermissionsSeeder extends Seeder
             'edit_post_theme_configuration',
         ];
 
+        $administrator = Role::where('name', 'administrator')->firstOrFail();
+
         foreach ($keys as $key) {
-            Permission::firstOrCreate([
+            $permission = Permission::firstOrCreate([
                 'key'        => $key,
                 'table_name' => null,
             ]);
+
+            $administrator->permissions()->attach($permission->id);
         }
     }
 }
