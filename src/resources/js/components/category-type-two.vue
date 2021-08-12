@@ -14,7 +14,7 @@
         <vs-col>
           <vs-card class="post-theme__category-two--card mb-20">
             <div slot="media" class="post-theme__category-two--card-header-container">
-              <img :src="getMediaBaseUrl + posts[0].thumbnail" @click="$to('post', posts[0].slug)">
+              <img :src="posts[0].thumbnail" @click="$to('post', posts[0].slug)">
               <div class="post-theme__category-two--card-header">
                 <vs-row>
                   <vs-col class="mb-8">
@@ -77,7 +77,7 @@
             <vs-col vs-w="6" class="pr-30">
               <vs-card class="post-theme__category-two--card mb-0">
                 <div slot="media" class="post-theme__category-two--card-header-container">
-                  <img :src="getMediaBaseUrl + posts[0].thumbnail" @click="$to('post', posts[0].slug)" class="pointer">
+                  <img :src="posts[0].thumbnail" @click="$to('post', posts[0].slug)" class="pointer">
                   <div class="post-theme__category-two--card-header">
                     <vs-row>
                       <vs-col class="mb-8">
@@ -152,9 +152,6 @@ export default {
     '$store.state.categories': 'fetchPosts'
   },
   computed: {
-    getMediaBaseUrl() {
-      return this.$store.state.meta.mediaBaseUrl || '/storage/'
-    },
     secondaryPost() {
       return this.posts.slice(1, 4);
     }
@@ -164,7 +161,7 @@ export default {
       this.loading = true
       let category = this.$store.state.categories[1]
       if (category) {
-        this.$api.badasoPost
+        this.$api.badasoPostPublic
           .fetchPosts({
             page: 1,
             limit: 10,

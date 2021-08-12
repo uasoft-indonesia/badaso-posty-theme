@@ -1145,8 +1145,19 @@ body {
     }
 
     &--social-media {
-      padding: 25px 60px;
+      grid-template-columns: repeat(5, 24px);
+      column-gap: 12px;
+      row-gap: 8px;
+      padding: 25px 0;
       background-color: #fff;
+      @media screen and (min-width: $xl) {
+        column-gap: 56px;
+        row-gap: 0;
+      }
+    }
+
+    &--social-media-icon {
+      width: 24px;
     }
   }
 

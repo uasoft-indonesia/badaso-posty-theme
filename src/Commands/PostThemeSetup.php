@@ -3,6 +3,7 @@
 namespace Uasoft\Badaso\Theme\PostTheme\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
 class PostThemeSetup extends Command
@@ -40,7 +41,6 @@ class PostThemeSetup extends Command
      */
     public function handle()
     {
-        $this->addingBadasoEnv();
         $this->updateWebpackMix();
         $this->updatePackageJson();
         $this->publishConfig();
@@ -51,62 +51,6 @@ class PostThemeSetup extends Command
         Artisan::call('vendor:publish', ['--tag' => 'BadasoPostTheme']);
 
         $this->info('Badaso post theme provider published');
-    }
-
-    protected function envListUpload()
-    {
-        return [
-            'MIX_POST_THEME_PREFIX' => '',
-            'MIX_FACEBOOK_APP_ID'   => '',
-            'MIX_NAVBAR_TITLE'      => '"Post Theme"',
-            'MIX_FACEBOOK_URL'      => '',
-            'MIX_TWITTER_URL'       => '',
-            'MIX_INSTAGRAM_URL'     => '',
-            'MIX_VIMEO_URL'         => '',
-            'MIX_PATH_URL'          => '',
-            'MIX_SKYPE_URL'         => '',
-            'MIX_TELEGRAM_URL'      => '',
-            'MIX_GOOGLE_URL'        => '',
-            'MIX_YOUTUBE_URL'       => '',
-        ];
-    }
-
-    protected function addingBadasoEnv()
-    {
-        try {
-            $env_path = base_path('.env');
-
-            $env_file = file_get_contents($env_path);
-            $arr_env_file = explode("\n", $env_file);
-
-            $env_will_adding = $this->envListUpload();
-
-            $new_env_adding = [];
-            foreach ($env_will_adding as $key_add_env => $val_add_env) {
-                $status_adding = true;
-                foreach ($arr_env_file as $key_env_file => $val_env_file) {
-                    $val_env_file = trim($val_env_file);
-                    if (substr($val_env_file, 0, 1) != '#' && $val_env_file != '' && strstr($val_env_file, $key_add_env)) {
-                        $status_adding = false;
-                        break;
-                    }
-                }
-                if ($status_adding) {
-                    $new_env_adding[] = "{$key_add_env}={$val_add_env}";
-                }
-            }
-
-            foreach ($new_env_adding as $index_env_add => $val_env_add) {
-                $arr_env_file[] = $val_env_add;
-            }
-
-            $env_file = join("\n", $arr_env_file);
-            file_put_contents($env_path, $env_file);
-
-            $this->info('Adding badaso env');
-        } catch (\Exception $e) {
-            $this->error('Failed adding badaso env '.$e->getMessage());
-        }
     }
 
     protected function checkExist($file, $search)
@@ -126,7 +70,6 @@ class PostThemeSetup extends Command
 
         // Post Theme
         mix.js("vendor/badaso/post-theme/src/resources/js/app.js", "public/js/post-theme.js");
-        mix.webpackConfig({ resolve: { alias: { 'vue$': 'vue/dist/vue.common.js' } } });
         EOT;
 
             $this->file->append($mix_file, $data);

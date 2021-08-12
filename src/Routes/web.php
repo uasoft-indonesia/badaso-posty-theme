@@ -1,8 +1,11 @@
 <?php
 
+use Uasoft\Badaso\Models\Configuration;
 use Uasoft\Badaso\Module\Post\Models\Post;
 
-$themePrefix = config('badaso-post-theme') ? config('badaso-post-theme.post_theme_prefix').'/' : '';
+$config = Configuration::where('key', 'postThemePrefix')->first();
+
+$themePrefix = isset($config) ? $config->value.'/' : '';
 
 Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
     'any' => '^(?!'.config('badaso.api_route_prefix').'|'.config('badaso.admin_panel_route_prefix').').*$',
@@ -42,7 +45,11 @@ Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
             return view('post-theme::newest');
         }
 
-        $post = Post::select('title', 'summary')->where('slug', $slug)->first();
+        if (isset($config)) {
+            $post = Post::select('title', 'summary')->where('slug', explode('/', $slug)[1])->first();
+        } else {
+            $post = Post::select('title', 'summary')->where('slug', $slug)->first();
+        }
 
         if (empty($post)) {
             return view('post-theme::errors.404');

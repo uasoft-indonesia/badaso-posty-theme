@@ -23,7 +23,9 @@
         "source": "https://github.com/uasoft-indonesia/badaso-post-theme"
     },
     "type": "library",
-    "require": {},
+    "require": {
+        "badaso/content-module": "^1.0@RC"
+    },
     "authors": [
         {
             "name": "UASOFT",

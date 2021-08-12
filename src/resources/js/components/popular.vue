@@ -48,7 +48,7 @@ export default {
   methods: {
     fetchPosts() {
       this.loading = true
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .fetchPopularPosts({
           page: 1,
           limit: 4
