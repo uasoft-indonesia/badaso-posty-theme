@@ -45,7 +45,7 @@ Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
             return view('post-theme::newest');
         }
 
-        if (env('MIX_POST_THEME_PREFIX')) {
+        if (isset($config)) {
             $post = Post::select('title', 'summary')->where('slug', explode('/', $slug)[1])->first();
         } else {
             $post = Post::select('title', 'summary')->where('slug', $slug)->first();
