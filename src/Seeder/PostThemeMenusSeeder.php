@@ -21,7 +21,7 @@ class PostThemeMenusSeeder extends Seeder
         try {
             $menus = [
                 0 => [
-                    'key' => 'post-theme',
+                    'key'          => 'post-theme',
                     'display_name' => 'Post Theme',
                 ],
             ];

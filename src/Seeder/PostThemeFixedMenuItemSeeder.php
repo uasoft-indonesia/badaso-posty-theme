@@ -23,14 +23,14 @@ class PostThemeFixedMenuItemSeeder extends Seeder
             $menu_id = Menu::where('key', 'post-theme')->firstOrFail()->id;
             $menu_items = [
                 0 => [
-                    'menu_id' => $menu_id,
-                    'title' => 'Configuration',
-                    'url' => '/post-theme-configuration',
-                    'target' => '_self',
-                    'icon_class' => 'settings',
-                    'color' => '',
-                    'parent_id' => null,
-                    'order' => 1,
+                    'menu_id'     => $menu_id,
+                    'title'       => 'Configuration',
+                    'url'         => '/post-theme-configuration',
+                    'target'      => '_self',
+                    'icon_class'  => 'settings',
+                    'color'       => '',
+                    'parent_id'   => null,
+                    'order'       => 1,
                     'permissions' => 'browse_post_theme_configuration',
                 ],
             ];

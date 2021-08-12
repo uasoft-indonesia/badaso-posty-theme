@@ -19,7 +19,7 @@ class PostThemePermissionsSeeder extends Seeder
 
         foreach ($keys as $key) {
             Permission::firstOrCreate([
-                'key' => $key,
+                'key'        => $key,
                 'table_name' => null,
             ]);
         }
