@@ -2,7 +2,7 @@
   <div class="post-theme__showcase">
     <slider ref="slider" :options="options" class="simpe-theme__slider-container">
       <slideritem v-for="(item, index) in thumbnails" :key="index" class="post-theme__showcase--container">
-        <img :src="getMediaBaseUrl + item.thumbnail" class="post-theme__showcase--image" alt="Thumbnail">
+        <img :src="item.thumbnail" class="post-theme__showcase--image" alt="Thumbnail">
         <div class="post-theme__showcase--overlay">
           <vs-row vs-type="grid" class="h-100 place-content-center">
             <vs-col vs-w="12" vs-type="grid" vs-justify="center" vs-align="center" class="grid-column mb-8">
@@ -50,11 +50,6 @@ export default {
       autoplay: 0
     },
   }),
-  computed: {
-    getMediaBaseUrl() {
-      return this.$store.state.meta.mediaBaseUrl || '/storage/'
-    }
-  },
   components: {
     slider,
     slideritem,

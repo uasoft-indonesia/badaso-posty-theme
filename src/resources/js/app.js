@@ -19,6 +19,7 @@ import PostThemePopular from "./components/popular-post";
 import PostThemeNewest from "./components/newest-post";
 
 import moment from "moment"
+import _ from "lodash"
 
 import "vuesax/dist/vuesax.css"; //Vuesax styles
 import "material-icons/iconfont/material-icons.css";
@@ -28,8 +29,10 @@ import "./assets/scss/style.scss";
 import api from "./api/index";
 import store from "./store/store";
 
-let themePrefix = process.env.MIX_POST_THEME_PREFIX ?
-"/" + process.env.MIX_POST_THEME_PREFIX :
+store.dispatch('fetchConfigurations')
+
+let themePrefix = _.filter(store.state.configurations, ["key", "postThemePrefix"]).pop().value ?
+"/" + _.filter(store.state.configurations, ["key", "postThemePrefix"]).pop().value :
 ""
 
 let prefix = process.env.MIX_BLOG_POST_URL_PREFIX ?

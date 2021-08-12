@@ -13,7 +13,7 @@
           <div class="post-theme__newest--card-content-container" v-for="(post, index) in posts" :key="index">
             <vs-row vs-type="flex" vs-justify="center" vs-align="center">
               <vs-col vs-xs="12" vs-sm="12" vs-lg="4">
-                <img :src="getMediaBaseUrl + post.thumbnail" @click="$to('post', post.slug)" :class="{pointer: true, 'mb-20': $isMobile}">
+                <img :src="post.thumbnail" @click="$to('post', post.slug)" :class="{pointer: true, 'mb-20': $isMobile}">
               </vs-col>
               <vs-col vs-xs="12" vs-sm="12" vs-lg="8">
                 <span v-if="$isMobile" @click="$to('post', post.slug)" class="post-theme__newest--content-title">{{ post.title }}</span>
@@ -60,15 +60,10 @@ export default {
   created() {
     this.fetchPosts();
   },
-  computed: {
-    getMediaBaseUrl() {
-      return this.$store.state.meta.mediaBaseUrl || '/storage/'
-    },
-  },
   methods: {
     fetchPosts() {
       this.loading = true
-      this.$api.badasoPost
+      this.$api.badasoBlog
         .fetchPosts({
           page: 1,
           limit: 4,

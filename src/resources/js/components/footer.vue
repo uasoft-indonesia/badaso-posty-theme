@@ -36,35 +36,12 @@
       </vs-row>
     </vs-card>
     <vs-card class="post-theme__footer--card-bottom mb-0">
-      <vs-row vs-type="flex" vs-justify="center" vs-align="center" class="post-theme__footer--social-media">
-        <vs-col v-if="socialMedia.facebook" vs-xs="3" vs-sm="3" vs-lg="1" :class="{ 'text-center': true, 'mb-16': $isMobile }">
-          <a :href="socialMedia.facebook"><img src="./../assets/images/facebook.png" alt="Facebook's Icon" sizes="21px"></a>
-        </vs-col>
-        <vs-col v-if="socialMedia.twitter" vs-xs="3" vs-sm="3" vs-lg="1" :class="{ 'text-center': true, 'mb-16': $isMobile }">
-          <a :href="socialMedia.twitter"><img src="./../assets/images/twitter.png" alt="Twitter's Icon" sizes="21px"></a>
-        </vs-col>
-        <vs-col v-if="socialMedia.instagram" vs-xs="3" vs-sm="3" vs-lg="1" :class="{ 'text-center': true, 'mb-16': $isMobile }">
-          <a :href="socialMedia.instagram"><img src="./../assets/images/instagram.png" alt="Instagram's Icon" sizes="21px"></a>
-        </vs-col>
-        <vs-col v-if="socialMedia.vimeo" vs-xs="3" vs-sm="3" vs-lg="1" :class="{ 'text-center': true, 'mb-16': $isMobile }">
-          <a :href="socialMedia.vimeo"><img src="./../assets/images/vimeo.png" alt="Vimeo's Icon" sizes="21px"></a>
-        </vs-col>
-
-        <vs-col v-if="socialMedia.path" vs-xs="2" vs-sm="2" vs-lg="1" class="text-center">
-          <a :href="socialMedia.path"><img src="./../assets/images/path.png" alt="Path's Icon" sizes="21px"></a>
-        </vs-col>
-        <vs-col v-if="socialMedia.skype" vs-xs="2" vs-sm="2" vs-lg="1" class="text-center">
-          <a :href="socialMedia.skype"><img src="./../assets/images/skype.png" alt="Skype's Icon" sizes="21px"></a>
-        </vs-col>
-        <vs-col v-if="socialMedia.telegram" vs-xs="2" vs-sm="2" vs-lg="1" class="text-center">
-          <a :href="socialMedia.telegram"><img src="./../assets/images/telegram.png" alt="Telegram's Icon" sizes="21px"></a>
-        </vs-col>
-        <vs-col v-if="socialMedia.google" vs-xs="2" vs-sm="2" vs-lg="1" class="text-center">
-          <a :href="socialMedia.google"><img src="./../assets/images/google.png" alt="Google's Icon" sizes="21px"></a>
-        </vs-col>
-        <vs-col v-if="socialMedia.youtube" vs-xs="2" vs-sm="2" vs-lg="1" class="text-center">
-          <a :href="socialMedia.youtube"><img src="./../assets/images/youtube.png" alt="Youtube's Icon" sizes="21px"></a>
-        </vs-col>
+      <vs-row vs-type="grid" vs-justify="center" class="post-theme__footer--social-media">
+        <div v-for="(socialMedia, index) in getSocialMedia" :key="index">
+          <a :href="socialMedia.data.url.data.url" class="post-theme__footer--social-media-icon">
+            <img :src="socialMedia.data.image.data" :alt="socialMedia.data.url.data.text">
+          </a>
+        </div>
       </vs-row>
     </vs-card>
   </footer>
@@ -75,29 +52,14 @@ export default {
   name: "PostThemeFooter",
   data:()=>({
     title: "",
-    socialMedia: {
-      facebook: null,
-      twitter: null,
-      instagram: null,
-      vimeo: null,
-      path: null,
-      skype: null,
-      telegram: null,
-      google: null,
-      youtube: null,
-    }
   }),
   beforeMount() {
     this.title = process.env.MIX_NAVBAR_TITLE;
-    this.socialMedia.facebook = process.env.MIX_FACEBOOK_URL;
-    this.socialMedia.twitter = process.env.MIX_TWITTER_URL;
-    this.socialMedia.instagram = process.env.MIX_INSTAGRAM_URL;
-    this.socialMedia.vimeo = process.env.MIX_VIMEO_URL;
-    this.socialMedia.path = process.env.MIX_PATH_URL;
-    this.socialMedia.skype = process.env.MIX_SKYPE_URL;
-    this.socialMedia.telegram = process.env.MIX_TELEGRAM_URL;
-    this.socialMedia.google = process.env.MIX_GOOGLE_URL;
-    this.socialMedia.youtube = process.env.MIX_YOUTUBE_URL;
   },
+  computed: {
+    getSocialMedia() {
+      return this.$store.state.socialMedia
+    }
+  }
 }
 </script>
