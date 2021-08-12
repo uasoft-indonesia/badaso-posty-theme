@@ -116,7 +116,6 @@ export default {
     post: {},
     comments: {},
     commentsData: [],
-    title: "",
     sortby: "desc",
     page: 1,
     options: [
@@ -137,7 +136,6 @@ export default {
     this.slug = window.location.pathname.split("/").pop();
     this.fetchPost();
     this.fetchComment();
-    this.title = process.env.MIX_NAVBAR_TITLE;
   },
   watch: {
     'sortby': {
@@ -164,9 +162,6 @@ export default {
           console.log('Error on fetching post', err);
           this.loading = false
         });
-    },
-    setSession(title) {
-      document.cookie = "title=" + title;
     },
     insertNewComment(event) {
       if (this.sortby === "desc") {

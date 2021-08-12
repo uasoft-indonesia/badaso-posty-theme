@@ -3,7 +3,7 @@
     <vs-card class="post-theme__footer--card mb-0 w-100">
       <vs-row vs-justify="space-around" vs-align="flex-start">
         <vs-col class="mb-24" vs-xs="12" vs-sm="12" vs-lg="4">
-          <h3 class="post-theme__footer--title mb-4">{{ title }}</h3>
+          <h3 class="post-theme__footer--title mb-4">{{ getTitle }}</h3>
           <span class="post-theme__footer--copyright">© 2021 Post Theme - Badaso<br>All rights reserved.</span>
         </vs-col>
         <vs-col class="mb-16" vs-xs="12" vs-sm="12" vs-lg="2">
@@ -50,15 +50,12 @@
 <script>
 export default {
   name: "PostThemeFooter",
-  data:()=>({
-    title: "",
-  }),
-  beforeMount() {
-    this.title = process.env.MIX_NAVBAR_TITLE;
-  },
   computed: {
     getSocialMedia() {
       return this.$store.state.socialMedia
+    },
+    getTitle() {
+      return _.filter(this.$store.state.configurations, ["key", "postThemeNavbarTitle"]).pop().value
     }
   }
 }
