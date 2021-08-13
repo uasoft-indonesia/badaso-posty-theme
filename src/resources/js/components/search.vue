@@ -77,7 +77,7 @@ export default {
   methods: {
     fetchPosts() {
       this.loading = true
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .fetchPosts({
           page: 1,
           limit: 10,
@@ -93,7 +93,7 @@ export default {
         });
     },
     next() {
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .fetchPosts({
           page: this.page,
           limit: 10,

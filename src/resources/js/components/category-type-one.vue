@@ -167,13 +167,13 @@ export default {
   computed: {
     secondaryPost() {
       return this.posts.slice(1, 4);
-    }
+    },
   },
   methods: {
     fetchPosts() {
       this.loading = true
       let category = this.$store.state.categories[0];
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .fetchPosts({
           page: 1,
           limit: 10,

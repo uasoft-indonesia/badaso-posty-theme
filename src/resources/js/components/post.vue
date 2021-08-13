@@ -21,11 +21,11 @@
             <vs-icon icon="share" size="18px" color="#4F4F4F"></vs-icon> <span class="ml-4 post-theme__post--share">SHARE: </span>
 
             <vs-row vs-justify="start" vs-align="center" vs-type="flex" class="ml-16">
-              <vs-col vs-xs="2" vs-sm="2" vs-lg="1" vs-align="center" vs-type="flex" vs-justify="center"><img src="./../assets/images/facebook.svg" alt="Facebook's Icon" sizes="21px"></vs-col>
-              <vs-col vs-xs="2" vs-sm="2" vs-lg="1" vs-align="center" vs-type="flex" vs-justify="center"><img src="./../assets/images/instagram.svg" alt="Facebook's Icon" sizes="21px"></vs-col>
-              <vs-col vs-xs="2" vs-sm="2" vs-lg="1" vs-align="center" vs-type="flex" vs-justify="center"><img src="./../assets/images/twitter.svg" alt="Facebook's Icon" sizes="21px"></vs-col>
-              <vs-col vs-xs="2" vs-sm="2" vs-lg="1" vs-align="center" vs-type="flex" vs-justify="center"><img src="./../assets/images/telegram.svg" alt="Facebook's Icon" sizes="21px"></vs-col>
-              <vs-col vs-xs="2" vs-sm="2" vs-lg="1" vs-align="center" vs-type="flex" vs-justify="center"><img src="./../assets/images/youtube.svg" alt="Facebook's Icon" sizes="21px"></vs-col>
+              <vs-col vs-xs="2" vs-sm="2" vs-lg="1" vs-align="center" vs-type="flex" vs-justify="center" v-for="(socialMedia, index) in getSocialMedia" :key="index">
+                <a :href="socialMedia.data.url.data.url" class="post-theme__footer--social-media-icon">
+                  <img :src="socialMedia.data.image.data" :alt="socialMedia.data.url.data.text">
+                </a>
+              </vs-col>
             </vs-row>
           </vs-col>
           <vs-divider class="mb-16 mt-16" />
@@ -36,6 +36,9 @@
             <span class="post-theme__showcase--icon-text ml-4">{{ post.user.name }}</span>
           </vs-col>
           <vs-divider class="mb-16 mt-16" />
+          <vs-col>
+            <img :src="post.thumbnail" class="post-theme__post--thumbnail">
+          </vs-col>
           <vs-col>
             <vs-card class="post-theme__post--card mb-0">
               <p class="post-theme__post--content" v-html="post.content"></p>
@@ -113,7 +116,6 @@ export default {
     post: {},
     comments: {},
     commentsData: [],
-    title: "",
     sortby: "desc",
     page: 1,
     options: [
@@ -126,12 +128,14 @@ export default {
     isShowButton() {
       return this.comments.currentPage >= this.comments.lastPage;
     },
+    getSocialMedia() {
+      return this.$store.state.socialMedia
+    }
   },
   created() {
     this.slug = window.location.pathname.split("/").pop();
     this.fetchPost();
     this.fetchComment();
-    this.title = process.env.MIX_NAVBAR_TITLE;
   },
   watch: {
     'sortby': {
@@ -146,7 +150,7 @@ export default {
   methods: {
     fetchPost() {
       this.loading = true
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .fetchPost({
           slug: this.slug
         })
@@ -170,7 +174,7 @@ export default {
       }
     },
     fetchComment() {
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .fetchComment({
           slug: this.slug,
           page: this.page,
@@ -187,7 +191,7 @@ export default {
         });
     },
     postComment() {
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .addComment({
           postId: this.post.id,
           content: this.comment,
