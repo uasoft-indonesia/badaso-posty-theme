@@ -161,7 +161,7 @@ export default {
       this.loading = true
       let category = this.$store.state.categories[1]
       if (category) {
-        this.$api.badasoBlog
+        this.$api.badasoPostPublic
           .fetchPosts({
             page: 1,
             limit: 10,

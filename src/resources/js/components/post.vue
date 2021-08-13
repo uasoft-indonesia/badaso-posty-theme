@@ -150,7 +150,7 @@ export default {
   methods: {
     fetchPost() {
       this.loading = true
-      this.$api.badasoBlog
+      this.$api.badasoPostPublic
         .fetchPost({
           slug: this.slug
         })
@@ -171,7 +171,7 @@ export default {
       }
     },
     fetchComment() {
-      this.$api.badasoBlog
+      this.$api.badasoPostPublic
         .fetchComment({
           slug: this.slug,
           page: this.page,
@@ -188,7 +188,7 @@ export default {
         });
     },
     postComment() {
-      this.$api.badasoBlog
+      this.$api.badasoPostPublic
         .addComment({
           postId: this.post.id,
           content: this.comment,

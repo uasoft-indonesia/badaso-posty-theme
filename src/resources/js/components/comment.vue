@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     postComment(parent, comment) {
-      this.$api.badasoBlog
+      this.$api.badasoPostPublic
         .addComment({
           postId: this.postId,
           content: comment,
