@@ -142,12 +142,13 @@ body {
     &--title {
       height: 100%;
 
-      & a {
+      & * {
         font-weight: bold;
         font-size: 18px;
         line-height: 22px;
         text-transform: uppercase;
         color: #4F4F4F;
+        cursor: pointer;
 
         @media screen and (min-width: $xl) {
           font-size: 24px;
@@ -216,7 +217,8 @@ body {
         margin: 35px 0;
       }
       
-      & a {
+      & * {
+        cursor: pointer;
         color: #fff;
         text-transform: uppercase;
       }
@@ -1143,8 +1145,19 @@ body {
     }
 
     &--social-media {
-      padding: 25px 60px;
+      grid-template-columns: repeat(5, 24px);
+      column-gap: 12px;
+      row-gap: 8px;
+      padding: 25px 0;
       background-color: #fff;
+      @media screen and (min-width: $xl) {
+        column-gap: 56px;
+        row-gap: 0;
+    }
+    }
+
+    &--social-media-icon {
+      width: 24px;
     }
   }
 
@@ -1183,6 +1196,12 @@ body {
         padding: 0 !important;
         margin-bottom: 0 !important;
       }
+    }
+
+    &--thumbnail {
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
     }
 
     &--content {
