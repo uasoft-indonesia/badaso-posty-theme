@@ -173,7 +173,7 @@ export default {
     fetchPosts() {
       this.loading = true
       let category = this.$store.state.categories[0];
-      this.$api.badasoPost
+      this.$api.badasoPostPublic
         .fetchPosts({
           page: 1,
           limit: 10,
