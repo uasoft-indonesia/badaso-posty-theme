@@ -29,7 +29,7 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchCategories({commit}) {
-      await api.badasoBlog
+      await api.badasoPostPublic
         .fetchCategories()
         .then((res) => {
           commit("SET_CATEGORIES", res.data.categories)
