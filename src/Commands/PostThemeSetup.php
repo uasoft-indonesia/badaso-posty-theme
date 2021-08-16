@@ -69,7 +69,8 @@ class PostThemeSetup extends Command
                 <<<'EOT'
 
         // Post Theme
-        mix.js("vendor/badaso/post-theme/src/resources/js/app.js", "public/js/post-theme.js");
+        mix.js("vendor/badaso/post-theme/src/resources/js/app.js", "public/js/post-theme.js")
+            .sass("vendor/badaso/post-theme/src/resources/js/assets/scss/style.scss", "public/css/post-theme.css");
         EOT;
 
             $this->file->append($mix_file, $data);
