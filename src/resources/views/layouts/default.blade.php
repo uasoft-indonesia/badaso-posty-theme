@@ -27,6 +27,7 @@
         ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
+    <link rel="stylesheet" href="{{ mix('css/post-theme.css') }}">
 </head>
 
 <body>

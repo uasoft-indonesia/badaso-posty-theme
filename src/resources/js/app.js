@@ -21,11 +21,6 @@ import PostThemeNewest from "./components/newest-post";
 import moment from "moment"
 import _ from "lodash"
 
-import "vuesax/dist/vuesax.css"; //Vuesax styles
-import "material-icons/iconfont/material-icons.css";
-import "vue-datetime/dist/vue-datetime.css";
-import "./assets/scss/style.scss";
-
 import api from "./api/index";
 import store from "./store/store";
 
