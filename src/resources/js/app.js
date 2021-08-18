@@ -26,9 +26,7 @@ import store from "./store/store";
 
 store.dispatch('fetchConfigurations')
 
-console.log(_.filter(store.state.configurations, ["key", "postThemePrefix"]));
-
-let themePrefix = _.filter(store.state.configurations, ["key", "postThemePrefix"]).pop().value ?
+let themePrefix = _.filter(store.state.configurations, ["key", "postThemePrefix"]).length > 0 ?
 "/" + _.filter(store.state.configurations, ["key", "postThemePrefix"]).pop().value :
 ""
 
