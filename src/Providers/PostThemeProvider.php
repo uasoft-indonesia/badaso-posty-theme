@@ -3,7 +3,6 @@
 namespace Uasoft\Badaso\Theme\PostTheme\Providers;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Uasoft\Badaso\Theme\PostTheme\Commands\PostThemeSetup;
 use Uasoft\Badaso\Theme\PostTheme\Facades\PostTheme as FacadesPostTheme;
