@@ -3,6 +3,7 @@
 namespace Uasoft\Badaso\Theme\PostTheme\Providers;
 
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Uasoft\Badaso\Theme\PostTheme\Commands\PostThemeSetup;
 use Uasoft\Badaso\Theme\PostTheme\Facades\PostTheme as FacadesPostTheme;
@@ -30,7 +31,7 @@ class PostThemeProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../Seeder'  => database_path('seeders/Badaso/PostTheme'),
-            __DIR__.'/../Images/' => storage_path('app/public/files/shares'),
+            __DIR__.'/../Images/' => storage_path('app/public/photos/shares'),
         ], 'BadasoPostTheme');
 
         $this->publishes([
