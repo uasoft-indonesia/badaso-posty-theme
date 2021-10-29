@@ -15,6 +15,7 @@ class HandleInertiaRequests extends Middleware
      * The root template that's loaded on the first page visit.
      *
      * @see https://inertiajs.com/server-side-setup#root-template
+     *
      * @var string
      */
     protected $rootView = 'post-theme::app';
@@ -23,7 +24,9 @@ class HandleInertiaRequests extends Middleware
      * Determines the current asset version.
      *
      * @see https://inertiajs.com/asset-versioning
-     * @param  \Illuminate\Http\Request  $request
+     *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return string|null
      */
     public function version(Request $request)
@@ -35,7 +38,9 @@ class HandleInertiaRequests extends Middleware
      * Defines the props that are shared by default.
      *
      * @see https://inertiajs.com/shared-data
-     * @param  \Illuminate\Http\Request  $request
+     *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function share(Request $request)
@@ -43,9 +48,9 @@ class HandleInertiaRequests extends Middleware
         $social_media = ApiResponse::success(Content::select(['id', 'value'])->where('slug', 'post-theme-social-media')->first())->original['data'];
 
         return array_merge(parent::share($request), [
-            'appName' => Config::get('postThemeNavbarTitle'),
-            'categories' => Category::all(['id', 'title', 'slug']),
-            'socialMedia' => $social_media
+            'appName'     => Config::get('postThemeNavbarTitle'),
+            'categories'  => Category::all(['id', 'title', 'slug']),
+            'socialMedia' => $social_media,
         ]);
     }
 }
