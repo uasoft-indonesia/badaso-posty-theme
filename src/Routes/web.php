@@ -1,60 +1,25 @@
 <?php
 
-use Uasoft\Badaso\Models\Configuration;
-use Uasoft\Badaso\Module\Post\Models\Post;
+use Illuminate\Support\Facades\Route;
+use Uasoft\Badaso\Theme\PostTheme\Middlewares\HandleInertiaRequests;
 
-$config = Configuration::where('key', 'postThemePrefix')->first();
+$post_route_prefix = config('badaso-post.post_post_url_prefix');
+// $admin_panel_route_prefix = \config('badaso.admin_panel_route_prefix');
+// $api_route_prefix = \config('badaso.api_route_prefix');
 
-$themePrefix = isset($config) ? $config->value.'/' : '';
+// Route::get('/' . $post_route_prefix . '/{any?}', function () {
+//   return view('post-theme::index');
+// })->where('any', '^((?!' . $api_route_prefix . '|' . $admin_panel_route_prefix . ').)*');
 
-Route::group(['prefix' => $themePrefix.'{any?}', 'where' => [
-    'any' => '^(?!'.config('badaso.api_route_prefix').'|'.config('badaso.admin_panel_route_prefix').').*$',
-]], function () {
-    $prefix = config('badaso-post.post_post_url_prefix') ? config('badaso-post.post_post_url_prefix').'/' : '';
-
-    Route::get('/'.$prefix.'{slug?}', function ($slug = null) {
-        if (empty($slug)) {
-            return view('post-theme::index');
-        }
-
-        if (strpos($slug, 'category/') !== false) {
-            $category = explode('/', $slug)[1];
-
-            if (empty($category)) {
-                return view('post-theme::errors.404');
-            }
-
-            return view('post-theme::category', compact('category'));
-        }
-
-        if (strpos($slug, 'search/') !== false) {
-            $search = explode('/', $slug)[1];
-
-            if (empty($search)) {
-                return view('post-theme::errors.404');
-            }
-
-            return view('post-theme::search', compact('search'));
-        }
-
-        if ($slug === 'popular') {
-            return view('post-theme::popular');
-        }
-
-        if ($slug === 'newest') {
-            return view('post-theme::newest');
-        }
-
-        if (isset($config)) {
-            $post = Post::select('title', 'summary')->where('slug', explode('/', $slug)[1])->first();
-        } else {
-            $post = Post::select('title', 'summary')->where('slug', $slug)->first();
-        }
-
-        if (empty($post)) {
-            return view('post-theme::errors.404');
-        }
-
-        return view('post-theme::posts', compact('slug', 'post'));
-    })->where('slug', '^(?!category|popular|newest|search).*$');
-});
+Route::prefix($post_route_prefix)
+    ->as('badaso.post-theme.')
+    ->namespace('Uasoft\Badaso\Theme\PostTheme\Controllers')
+    ->middleware(['web', HandleInertiaRequests::class])
+    ->group(function () {
+        Route::get('/', 'HomeController')->name('home');
+        Route::get('/category/{slug}', 'CategoryController')->name('category');
+        Route::get('/search/{slug?}', 'SearchController')->name('search');
+        Route::get('/popular', 'PopularController')->name('popular');
+        Route::get('/newest', 'NewestController')->name('newest');
+        Route::get('/{slug}', 'PostController')->name('post');
+    });
