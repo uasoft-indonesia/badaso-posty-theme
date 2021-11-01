@@ -1,0 +1,1494 @@
+* {
+  font-family: 'Quicksand';
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.wrapper {
+  padding: 20px;
+
+  @media screen and (min-width: $xl) {
+    padding: 70px;
+  }
+}
+
+.vs-navbar--header {
+  height: 60px;
+  justify-content: start !important;
+}
+
+.vs-navbar--btn-responsive {
+  margin: 10px !important;
+}
+
+.slider-loading {
+  width: 100%;
+}
+
+.place-content-center {
+  place-content: center;
+}
+
+.place-content-start {
+  place-content: start;
+}
+
+.grid-column {
+  grid-auto-flow: column
+}
+
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+.align-items-center {
+  align-items: center;
+}
+
+.text-black {
+  color: black !important;
+}
+
+.slider-container {
+  border-radius: 15px;
+}
+
+.box-shadow {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.text-white {
+  color: white !important;
+}
+
+.text-carbon {
+  color: #4F4F4F !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.sticky {
+  top: -1px;
+  position: sticky;
+  position: -webkit-sticky;
+}
+
+.w-auto {
+  width: auto !important;
+}
+
+.post-theme {
+  &__navbar {
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 15px 15px 0 0;
+    z-index: 2000;
+    position: relative;
+
+    @media screen and (min-width: $xl) {
+      height: 100px;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0px 9px 7px -4px rgba(0, 0, 0, 0.15);
+    }
+
+    &--icon {
+      border-right: 2px solid rgba(0, 0, 0, 0.15)
+    }
+
+    &--title {
+      height: 100%;
+
+      & * {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: #4F4F4F;
+        cursor: pointer;
+
+        @media screen and (min-width: $xl) {
+          font-size: 24px;
+          line-height: 30px;
+        }
+      }
+    }
+
+    &--search {
+      height: 100%;
+
+      & i {
+        cursor: pointer;
+        color: #4F4F4F;
+      }
+    }
+
+    &--search-text {
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    &--button {
+      text-align: center;
+      background-color: #2E99A5;
+      height: 100%;
+      border-radius: 15px 0 0 0;
+
+      & i {
+        color: #fff;
+        cursor: pointer;
+
+        @media screen and (min-width: $xl) {
+          width: 36px !important;
+          height: 36px !important;
+          font-size: 36px !important;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    padding: 0 20px;
+    background-color: #2E99A5;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 0 0 15px 15px;
+    z-index: 1000;
+    visibility: hidden;
+    max-height: 0;
+
+    &.open {
+      visibility: visible;
+      max-height: 100%;
+    }
+
+    &--item {
+      font-weight: bold;
+      font-size: 10px;
+      line-height: 12px;
+      text-align: center;
+      margin: 20px 0;
+
+      @media screen and (min-width: $xl) {
+        font-size: 24px;
+        line-height: 30px;
+        margin: 35px 0;
+      }
+      
+      & * {
+        cursor: pointer;
+        color: #fff;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__search {
+    &--overlay {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100vh;
+      width: 100vw;
+      z-index: 99999;
+    }
+
+    &--container {
+      height: 100vh;
+
+      & .vs-con-input-label {
+        margin: auto;
+      }
+    }
+
+    &--input {
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+      @media screen and (min-width: $xl) {
+        width: 600px;
+      }
+
+      & .vs-input--icon {
+        top: 4px;
+
+        @media screen and (min-width: $xl) {
+          top: 50%;
+          transform: translate(0%, -50%);
+        }
+      }
+
+      & .vs-input--placeholder.large {
+        padding: 0;
+        padding-top: .8rem;
+      }
+
+      & .vuesax-app-is-ltr .vs-input--icon {
+        left: 3px;
+      }
+
+      & .hasIcon {
+        padding-left: 40px !important;
+      }
+
+      & .vs-input--placeholder {
+        padding-left: 40px !important;
+      }
+    }
+
+    &--button {
+      text-align: center;
+
+      & button {
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    &--close {
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      cursor: pointer;
+    }
+  }
+
+  &__showcase {
+    width: 100%;
+    height: 250px;
+
+    @media screen and (min-width: $xl) {
+      height: 552px;
+    }
+
+    &--container {
+      position: relative;
+
+      &:hover .post-theme__showcase--overlay {
+        background: rgba(0, 0, 0, 0.5); /* Black see-through */
+      }
+    }
+
+    &--overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0); /* Black see-through */
+      color: #f1f1f1;
+      width: 100%;
+      height: 100%;
+      transition: .25s ease;
+      opacity: 1;
+      color: white;
+      font-size: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    &--image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+
+      @media screen and (min-width: $xl) {
+        height: 552px;
+      }
+    }
+
+    &--icon-text {
+      font-size: 10px;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+
+    &--wrap {
+      white-space: pre-wrap;
+    }
+
+    &--title {
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+      font-size: 18px;
+      line-height: 25px;
+      font-weight: 600;
+      margin: 0;
+
+      @media screen and (min-width: $xl) {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 500;
+        margin: 16px auto;
+        width: 75%;
+      }
+    }
+
+    &--readmore {
+      border-radius: 15px !important;
+
+      @media screen and (min-width: $xl) {
+        border-radius: 10px !important;
+        background: rgba(18, 175, 146, 0.5) !important;
+        height: 40px;
+      }
+
+      & .vs-button-text {
+        font-size: 12px;
+        line-height: 15px;
+        font-weight: bold;
+
+        @media screen and (min-width: $xl) {
+          font-size: 14px;
+          line-height: 17px;
+          margin: auto 32px;
+        }
+      }
+    }
+  }
+
+  &__loading {
+    color: rgba(0, 0, 0, 0.5);
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+    &--wrapper {
+      text-align: center;
+    }
+  }
+
+  &__category {
+    &--card {
+      border-radius: 15px;
+      box-shadow: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &--card-header-container {
+      position: relative;
+      color: white;
+      height: 320px;
+      width: 100%;
+
+      @media screen and (min-width: $xl) {
+        width: 100%;
+        height: auto;
+      }
+
+      & img {
+        height: 320px;
+        object-fit: cover;
+        border-radius: 15px;
+
+        @media screen and (min-width: $xl) {
+          width: 100%;
+          height: auto;
+          border-radius: 15px 15px 0 0;
+        }
+      }
+    }
+    
+    &--card-header-container-secondary {
+      position: relative;
+      color: white;
+      height: 125px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+
+      @media screen and (min-width: $xl) {
+        height: 165px;
+        padding: 0px;
+      }
+
+      & img {
+        height: 125px;
+        object-fit: cover;
+        border-radius: 15px;
+
+        @media screen and (min-width: $xl) {
+          width: 100%;
+          height: 165px;
+        }
+      }
+    }
+
+    &--card-header {
+      position: absolute;
+      bottom: 30px;
+      right: 20px;
+      left: 20px;
+    }
+
+    &--card-header-text {
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+      font-size: 18px;
+      line-height: 25px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: normal;
+      }
+    }
+
+    &--card-header-chip {
+      font-size: 10px;
+      line-height: 14px;
+      border-radius: 15px;
+      min-height: 16px;
+      padding-right: 6px !important;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      & > span {
+        margin-left: 6px !important;
+      }
+    }
+
+    &--card-description {
+      font-size: 12px;
+      line-height: 16px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+
+    &--card-content-container {
+      padding: 20px;
+    }
+
+    &--title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-weight: bold;
+        font-size: 23px;
+        line-height: 29px;
+        text-transform: uppercase;
+      }
+    }
+
+    &--tag {
+      font-size: 20px;
+      color: #4F4F4F;
+    }
+
+    &--see-all {
+      font-size: 10px;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+
+    &--read-more {
+      color: #4F4F4F;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  &__category-two {
+    &--card {
+      border-radius: 15px;
+      box-shadow: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &--card-header-container {
+      position: relative;
+      color: white;
+      height: 320px;
+      width: 100%;
+
+      @media screen and (min-width: $xl) {
+        width: 100%;
+        height: auto;
+      }
+
+      & img {
+        height: 320px;
+        object-fit: cover;
+        border-radius: 15px;
+
+        @media screen and (min-width: $xl) {
+          width: 100%;
+          height: auto;
+          border-radius: 15px 15px 0 0;
+        }
+      }
+    }
+    
+    &--card-header-container-secondary {
+      position: relative;
+      color: white;
+      height: 125px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      @media screen and (min-width: $xl) {
+        height: 100px;
+      }
+
+      & img {
+        height: 125px;
+        object-fit: cover;
+        border-radius: 15px;
+
+        @media screen and (min-width: $xl) {
+          width: 100%;
+          height: 100px;
+        }
+      }
+    }
+
+    &--card-header {
+      position: absolute;
+      bottom: 30px;
+      right: 20px;
+      left: 20px;
+    }
+
+    &--card-header-text {
+      font-size: 18px;
+      line-height: 25px;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 16px;
+        line-height: 25px;
+      }
+    }
+
+    &--card-header-title {
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+      font-size: 18px;
+      line-height: 25px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: normal;
+      }
+    }
+
+    &--card-header-chip {
+      font-size: 10px;
+      line-height: 14px;
+      border-radius: 15px;
+      min-height: 16px;
+      padding-right: 6px !important;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      & > span {
+        margin-left: 6px !important;
+      }
+    }
+
+    &--card-description {
+      font-size: 12px;
+      line-height: 16px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+
+    &--card-content-container {
+      padding: 20px;
+    }
+
+    &--title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-weight: bold;
+        font-size: 23px;
+        line-height: 29px;
+        text-transform: uppercase;
+      }
+    }
+
+    &--tag {
+      font-size: 20px;
+      color: #4F4F4F;
+    }
+
+    &--see-all {
+      font-size: 10px;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+
+    &--read-more {
+      color: #4F4F4F;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+  
+  &__other {
+    &--card {
+      border-radius: 15px;
+      box-shadow: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      & .vs-card--content {
+        @media screen and (min-width: $xl) {
+          padding: 40px !important;
+        }
+      }
+    }
+
+    &--card-content-container {
+      position: relative;
+      color: white;
+      height: 320px;
+      width: 320px;
+
+      @media screen and (min-width: $xl) {
+        width: 100%;
+        height: auto;
+      }
+
+      & img {
+        height: 320px;
+        object-fit: cover;
+        border-radius: 15px;
+
+        @media screen and (min-width: $xl) {
+          width: 100%;
+          height: 160px;
+          border-radius: 15px;
+        }
+      }
+
+      & .vs-divider {
+        margin: 30px 0;
+      }
+    }
+    
+    &--card-header-container-secondary {
+      position: relative;
+      color: white;
+      height: 125px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media screen and (min-width: $xl) {
+        height: 100px;
+      }
+
+      & img {
+        height: 125px;
+        object-fit: cover;
+        border-radius: 15px;
+
+        @media screen and (min-width: $xl) {
+          width: 100%;
+          height: 100px;
+        }
+      }
+    }
+
+    &--content-title {
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        color: #2E99A5;
+        display: block;
+      }
+    }
+
+    &--card-header-text {
+      font-size: 18px;
+      line-height: 25px;
+      color: #4F4F4F;
+      font-weight: 600;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 16px;
+        line-height: 25px;
+        font-weight: normal;
+      }
+    }
+
+    &--card-header-title {
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+      font-size: 18px;
+      line-height: 25px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: normal;
+      }
+    }
+
+    &--card-header-chip {
+      font-size: 10px;
+      line-height: 14px;
+      border-radius: 15px;
+      min-height: 16px;
+      padding-right: 6px !important;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      & > span {
+        margin-left: 6px !important;
+      }
+    }
+
+    &--card-description {
+      font-size: 12px;
+      line-height: 16px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+
+    &--title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-weight: bold;
+        font-size: 23px;
+        line-height: 29px;
+        text-transform: uppercase;
+      }
+    }
+
+    &--tag {
+      font-size: 20px;
+      color: #4F4F4F;
+    }
+
+    &--see-all {
+      font-size: 10px;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+
+    &--read-more {
+      color: #4F4F4F;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  &__newest {
+    &--card {
+      border-radius: 15px;
+      box-shadow: none;
+      width: 100%;
+
+      & .vs-card--content {
+        padding: 24px !important;
+        margin-bottom: 0 !important;
+      }
+
+      & .vs-card--header {
+        padding: 15px;
+        background: #2E99A5;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        cursor: pointer;
+
+        @media screen and (min-width: $xl) {
+          padding: 20px;
+        }
+
+        & > div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    &--card-content-container {
+      & img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+
+        @media screen and (min-width: $xl) {
+          height: 70px;
+          border-radius: 0px;
+        }
+      }
+
+      & .vs-divider {
+        margin: 20px 0;
+      }
+    }
+
+    &--title {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 25px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    &--content-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #2E99A5;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 400;
+        margin-left: 8px;
+      }
+    }
+
+    &--see-all {
+      font-size: 10px;
+      color: #4F4F4F;
+    }
+
+    &--card-description {
+      font-size: 12px;
+      line-height: 16px;
+      color: #4F4F4F;
+    }
+
+    &--read-more {
+      color: #4F4F4F;
+      font-weight: bold;
+    }
+  }
+
+  &__popular {
+    &--card {
+      border-radius: 15px;
+      box-shadow: none;
+      width: 100%;
+
+      & .vs-card--content {
+        padding: 24px !important;
+        margin-bottom: 0 !important;
+      }
+
+      & .vs-card--header {
+        padding: 15px;
+        background: #2E99A5;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        cursor: pointer;
+
+        @media screen and (min-width: $xl) {
+          padding: 20px;
+        }
+
+        & > div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    &--card-content-container {
+      & img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+
+      & > .vs-divider {
+        margin: 20px 0;
+      }
+    }
+
+    &--title {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 25px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    &--content-title {
+      font-size: 16px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+
+    &--see-all {
+      font-size: 10px;
+      color: #4F4F4F;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: $xl) {
+      flex-direction: column-reverse;
+    }
+
+    &--card {
+      border-radius: 15px 15px 0 0;
+      background-color: #2E99A5;
+      color: #fff;
+
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+
+      @media screen and (min-width: $xl) {
+        border-radius: 0 0 15px 15px;
+        z-index: 1000;
+      }
+      
+      & > .vs-card--content {
+        padding: 20px;
+        margin-bottom: 0px;
+
+        @media screen and (min-width: $xl) {
+          padding: 40px;
+        }
+      }
+    }
+
+    &--card-bottom {
+      border-radius: 0 0 15px 15px;
+      background-color: #fff;
+      color: #000;
+      margin-top: -4px;
+
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+
+      @media screen and (min-width: $xl) {
+        border-radius: 15px 15px 0 0;
+        z-index: 0;
+      }
+      
+      & > .vs-card--content {
+        margin-bottom: 0px;
+      }
+    }
+
+    &--title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 33px;
+      text-transform: uppercase;
+
+      @media screen and (min-width: $xl) {
+        font-size: 48px;
+        line-height: 60px;
+        margin-bottom: 24px !important;
+      }
+    }
+
+    &--copyright {
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &--links {
+      font-size: 18px;
+      line-height: 22px;
+      text-transform: uppercase;
+
+      @media screen and (min-width: $xl) {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 20px !important;
+      }
+
+      &-items {
+        list-style-type: none;
+
+        & li {
+          display: inline;
+
+          @media screen and (min-width: $xl) {
+            display: flex;
+            margin-bottom: 15px;
+          }
+        }
+      }
+
+      &-item {
+        & > a {
+          color: #fff;
+          font-size: 12px;
+          line-height: 15px;
+
+          @media screen and (min-width: $xl) {
+            font-size: 18px;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+
+    &--social-media {
+      grid-template-columns: repeat(5, 24px);
+      column-gap: 12px;
+      row-gap: 8px;
+      padding: 25px 0;
+      background-color: #fff;
+      @media screen and (min-width: $xl) {
+        column-gap: 56px;
+        row-gap: 0;
+    }
+    }
+
+    &--social-media-icon {
+      width: 24px;
+    }
+  }
+
+  &__breadcrumb {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+
+    @media screen and (min-width: $xl) {
+      margin-bottom: 24px !important;
+    }
+
+    & ol {
+      padding: 0;
+    }
+  }
+
+  &__post {
+    &--title {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 40px;
+        line-height: 50px;
+      }
+    }
+
+    &--card {
+      border-radius: 15px;
+      box-shadow: none;
+      padding: 20px;
+
+      & > .vs-card--content {
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    &--thumbnail {
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
+    }
+
+    &--content {
+      & p:not(:first-child):not(:last-child) {
+        margin-bottom: 16px;
+      }
+
+      & p {
+        font-size: 12px;
+        line-height: 18px;
+
+        @media screen and (min-width: $xl) {
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+
+      & > img {
+        margin: -20px;
+        border-radius: 15px 15px 0 0;
+        width: calc(100% + 40px);
+        height: auto;
+        margin-bottom: 40px;
+
+        &:not(:first-child) {
+          margin: 0px;
+          border-radius: 0;
+          width: 100%;
+          height: auto;
+          margin-bottom: 0px;
+        }
+      }
+
+      & > p > img {
+        margin: -20px;
+        border-radius: 15px 15px 0 0;
+        width: calc(100% + 40px);
+        height: auto;
+        margin-bottom: 40px;
+      }
+
+      & > p:not(:first-child) > img {
+        margin: 0px;
+        border-radius: 0;
+        width: 100%;
+        height: auto;
+        margin-bottom: 0px;
+      }
+
+      & ul {
+        margin-left: 20px;
+        margin-bottom: 16px;
+
+        & li:not(:last-child) {
+          margin-bottom: 8px;
+        }
+      }
+
+      & ol {
+        margin-left: 12px;
+        margin-bottom: 16px;
+
+        & li:not(:last-child) {
+          margin-bottom: 8px;
+        }
+      }
+
+      & table {
+        margin-bottom: 16px;
+        width: 100% !important;
+      }
+    }
+
+    &--share {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 20px;
+        line-height: 25px;
+      }
+    }
+
+    &--tag {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 20px;
+        line-height: 25px;
+      }
+    }
+
+    &--comment {
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 20px;
+        line-height: 25px;
+      }
+
+      &-card {
+        & .vs-tabs--li {
+          background-color: #fff;
+          z-index: 2000;
+          position: relative;
+
+          &:first-child {
+            border-radius: 15px 0 0 0;
+          }
+
+          &:last-child {
+            border-radius: 0 15px 0 0;
+          }
+
+          &:first-child:last-child {
+            border-radius: 15px 15px 0 0;
+          }
+        }
+
+        & .vs-tabs--content {
+          background-color: #fff;
+          border-radius: 0 15px 15px 15px;
+          z-index: 1000;
+          padding: 20px;
+          position: relative;
+        }
+
+        & .line-vs-tabs {
+          z-index: 3000;
+        }
+      }
+    }
+
+    &--tag-chip {
+      font-size: 10px;
+      line-height: 12px;
+      padding-right: 8px !important;
+      min-height: 18px !important;
+      margin-top: auto;
+      margin-bottom: auto;
+
+      @media screen and (min-width: $xl) {
+        font-size: 12px;
+        line-height: 15px;
+      }
+
+      & span {
+        margin-left: 8px !important;
+      }
+    }
+  }
+
+  &__comments {
+    &--content {
+      font-size: 16px;
+    }
+
+    &--small {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.5);
+      display: inline;
+    }
+
+    &--link {
+      font-size: 12px;
+      color: rgb(31, 116, 255);
+      display: inline;
+    }
+
+    &--user {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  &__categories {
+    &--card {
+      border-radius: 15px;
+      box-shadow: none;
+      width: 100%;
+
+      & .vs-card--content {
+        padding: 24px !important;
+        margin-bottom: 0 !important;
+      }
+
+      & .vs-card--header {
+        padding: 15px;
+        background: #2E99A5;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        cursor: pointer;
+
+        @media screen and (min-width: $xl) {
+          padding: 20px;
+        }
+
+        & > div {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    &--tag {
+      font-size: 20px;
+      color: #4F4F4F;
+    }
+
+    &--see-all {
+      font-size: 10px;
+      color: #4F4F4F;
+      cursor: pointer;
+
+      @media screen and (min-width: $xl) {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+
+    &--card-content-container {
+      & img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        cursor: pointer;
+
+        @media screen and (min-width: $xl) {
+          height: 200px;
+          border-radius: 20px;
+        }
+      }
+
+      & .vs-divider {
+        margin: 20px 0;
+      }
+    }
+
+    &--content-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #4f4f4f;
+      cursor: pointer;
+      margin-bottom: 24px;
+      margin-left: 0px;
+
+      @media screen and (min-width: $xl) {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        color: #2E99A5;
+        margin-bottom: 20px;
+      }
+    }
+
+    &--card-description {
+      font-size: 12px;
+      line-height: 16px;
+      color: #4F4F4F;
+
+      @media screen and (min-width: $xl) {
+        font-size: 13px;
+        line-height: 18px;
+      }
+    }
+
+    &--read-more {
+      color: #4F4F4F;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  &__pagination {
+    & > div {
+      justify-content: center !important;
+    }
+  }
+}

@@ -14,6 +14,18 @@ composer require badaso/post-theme
 npm install
 ```
 
+- Run the following command to setup the `badaso-content`.
+
+```
+php artisan badaso-content:setup
+```
+
+- Run the following command to migrate `badaso-content` table.
+
+```
+php artisan migrate
+```
+
 - Run the following command.
 
 ```
