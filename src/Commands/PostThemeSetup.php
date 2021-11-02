@@ -133,6 +133,7 @@ class PostThemeSetup extends Command
 
         $decoded_json['dependencies']['@inertiajs/inertia'] = '^0.10.1';
         $decoded_json['dependencies']['@inertiajs/inertia-vue'] = '^0.7.2';
+        $decoded_json['dependencies']['vue-mobile-detection'] = '^1.0.0';
         $decoded_json['dependencies']['vue-owl-carousel'] = '^2.0.3';
         $decoded_json['dependencies']['vue-clamp'] = '^0.3.2';
 
