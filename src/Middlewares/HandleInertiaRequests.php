@@ -45,7 +45,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
-        $social_media = ApiResponse::success(Content::select(['id', 'value'])->where('slug', 'post-theme-social-media')->first())->original['data'];
+        $social_media = ApiResponse::success(Content::select(['id', 'value'])->where('slug', 'post-theme-social-media')->first())->original['data'] ?? [];
 
         return array_merge(parent::share($request), [
             'appName'     => Config::get('postThemeNavbarTitle'),

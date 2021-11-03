@@ -3,13 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Uasoft\Badaso\Theme\PostTheme\Middlewares\HandleInertiaRequests;
 
-$post_route_prefix = config('badaso-post.post_post_url_prefix');
-// $admin_panel_route_prefix = \config('badaso.admin_panel_route_prefix');
-// $api_route_prefix = \config('badaso.api_route_prefix');
-
-// Route::get('/' . $post_route_prefix . '/{any?}', function () {
-//   return view('post-theme::index');
-// })->where('any', '^((?!' . $api_route_prefix . '|' . $admin_panel_route_prefix . ').)*');
+$post_route_prefix = config('badaso-post-theme.post_theme_prefix');
 
 Route::prefix($post_route_prefix)
     ->as('badaso.post-theme.')
