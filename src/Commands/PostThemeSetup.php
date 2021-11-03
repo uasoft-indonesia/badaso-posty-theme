@@ -84,7 +84,7 @@ class PostThemeSetup extends Command
     protected function envListUpload()
     {
         return [
-            'POST_THEME_PREFIX' => '',
+            'POST_THEME_PREFIX' => 'post',
         ];
     }
 

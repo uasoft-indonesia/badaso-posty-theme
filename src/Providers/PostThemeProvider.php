@@ -30,6 +30,7 @@ class PostThemeProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../Seeder'  => database_path('seeders/Badaso/PostTheme'),
+            __DIR__.'/../Config/badaso-post-theme.php' => config_path('badaso-post-theme.php'),
             __DIR__.'/../Images/' => storage_path('app/public/photos/shares'),
         ], 'BadasoPostTheme');
 
