@@ -29,7 +29,15 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
-  resolve: name => require(`./pages/${name}.vue`),
+  resolve: name => {
+    const isExists = require.context('./../../../../../../resources/js/badaso/theme/post-theme/pages', false, /\.vue$/).keys().some(key => key.includes(name));
+
+    if (isExists) {
+      return require(`./../../../../../../resources/js/badaso/theme/post-theme/pages/${name}.vue`);
+    } else {
+      return require(`./pages/${name}.vue`)
+    }
+  },
   setup({ el, App, props }) {
     new Vue({
       store,
