@@ -9,7 +9,7 @@ slug: /
   <a href="https://badaso-docs.uatech.co.id/">
     <img src="img/badaso-module-logo.png" width="150px" alt="Badaso logo" />  
   </a>
-  <p>badaso/post-theme</p>
+<p><b>badaso/post-theme</b></p>
 </p>
 
 <p align="left">Official post theme for <a href="https://github.com/uasoft-indonesia/badaso">badaso post module</a></p>
