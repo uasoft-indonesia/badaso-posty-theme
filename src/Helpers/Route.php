@@ -11,7 +11,7 @@ class Route
 
         // if the key is not found, return $key
         if (!isset($controllers[$key])) {
-            return 'Uasoft\\Badaso\\Theme\\PostTheme\\Controllers\\' . $key;
+            return 'Uasoft\\Badaso\\Theme\\PostTheme\\Controllers\\'.$key;
         }
 
         // return the value of the key
