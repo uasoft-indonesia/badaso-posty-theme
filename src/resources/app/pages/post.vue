@@ -55,7 +55,7 @@
           <vs-divider class="mb-16 mt-16" />
           <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
             <vs-icon icon="share" size="18px" color="#4F4F4F"></vs-icon> <span class="ml-4 mr-16 post-theme__post--tag">TAG: </span>
-            <Link v-for="(tag, index) in post.tags" :key="index" :href="route('badaso.post-theme.tag', tag.slug)">
+            <Link v-for="(tag, index) in post.tags" :key="index" href="#">
               <vs-chip color="#2E99A5" class="post-theme__post--tag-chip mr-8">{{ tag.title }}</vs-chip>
             </Link>
           </vs-col>
