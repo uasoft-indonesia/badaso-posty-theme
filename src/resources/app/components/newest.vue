@@ -36,8 +36,8 @@
                 </vs-col>
               </vs-row>
 
-              <div class="post-theme__newest--card-description line-clamp-3" v-html="post.content"></div>
-              <Link :href="route('badaso.post-theme.post', post.slug)" class="post-theme__newest--read-more">Baca Selengkapnya</Link>
+              <div v-if="$isMobile()" class="post-theme__newest--card-description line-clamp-3" v-html="post.content"></div>
+              <Link v-if="$isMobile()" :href="route('badaso.post-theme.post', post.slug)" class="post-theme__newest--read-more">Baca Selengkapnya</Link>
               <vs-divider v-if="index !== posts.length - 1"/>
             </vs-row>
           </div>
