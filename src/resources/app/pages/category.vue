@@ -7,7 +7,7 @@
       <vs-col vs-lg="9" vs-xs="12" vs-sm="12" :class="{ 'pr-30': !$isMobile() }">
         <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts.data && posts.data.length > 0">
           <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
-            <span class="post-theme__categories--tag">TAG: <b>{{ posts.data[0].category.title }}</b></span>
+            <span class="post-theme__categories--tag">KATEGORI: <b>{{ posts.data[0].category.title }}</b></span>
           </vs-col>
           <vs-divider />
           <vs-col vs-w="12">
@@ -21,15 +21,11 @@
                   </vs-col>
                   <vs-col vs-xs="12" vs-sm="12" vs-lg="7">
                     <Link :href="route('badaso.post-theme.post', post.slug)">
-                      <h3 class="post-theme__categories--content-title">{{ post.title }}</h3>
+                      <h3 class="post-theme__categories--content-title line-clamp-2">{{ post.title }}</h3>
                     </Link>
                     <info :post="post"></info>
-                    <vue-clamp :max-lines="5" class="post-theme__categories--card-description">
-                      {{ post.summary }}
-                      <template slot="after">
-                        <Link :href="route('badaso.post-theme.post', post.slug)" class="post-theme__categories--read-more">... Baca Selengkapnya</Link>
-                      </template>
-                    </vue-clamp>
+                    <div class="post-theme__categories--card-description line-clamp-3" v-html="post.content"></div>
+                    <Link :href="route('badaso.post-theme.post', post.slug)" class="post-theme__categories--read-more">Baca Selengkapnya</Link>
                   </vs-col>
                   <vs-col vs-w="12">
                     <vs-divider v-if="index !== posts.data.length - 1"/>

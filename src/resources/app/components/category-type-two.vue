@@ -33,15 +33,9 @@
               </div>
             </div>
             <div class="post-theme__category-two--card-content-container">
-              <vue-clamp :max-lines="5" class="post-theme__category-two--card-description mb-16">
-                {{ posts[0].summary }}
-                <template slot="after">
-                  <Link :href="route('badaso.post-theme.post', posts[0].slug)" class="post-theme__category-two--read-more">
-                    Baca Selengkapnya
-                  </Link>
-                </template>
-              </vue-clamp>
-              <vs-row vs-type="grid" class="h-100 place-content-start">
+              <div class="post-theme__category-two--card-description line-clamp-3" v-html="posts[0].content"></div>
+              <Link :href="route('badaso.post-theme.post', posts[0].slug)" class="post-theme__category-two--read-more">Baca Selengkapnya</Link>
+              <vs-row vs-type="grid" class="h-100 place-content-start mt-16">
                 <vs-col vs-w="12" vs-type="grid" vs-justify="center" vs-align="center" class="grid-column mb-8">
                   <vs-icon icon="chat_bubble_outline" color="#4F4F4F" size="14px"></vs-icon> 
                   <span class="post-theme__showcase--icon-text ml-4">{{ posts[0].commentCount }}</span>
@@ -77,7 +71,7 @@
         <vs-col vs-w="6" vs-justify="flex-end" vs-align="center" vs-type="flex" class="mb-8">
           <Link :href="route('badaso.post-theme.category', posts[0].category.slug)" class="d-flex justify-content-center align-items-center text-black">
             <span class="post-theme__category-two--see-all">LIHAT SEMUA</span>
-            <vs-icon icon="chevron_right" size="12px"></vs-icon>
+            <vs-icon icon="chevron_right" size="24px"></vs-icon>
           </Link>
         </vs-col>
         <vs-col>
@@ -86,9 +80,9 @@
               <vs-card class="post-theme__category-two--card mb-0">
                 <div slot="media" class="post-theme__category-two--card-header-container">
                   <Link :href="route('badaso.post-theme.post', posts[0].slug)">
-                    <img :src="posts[0].thumbnail" class="pointer">
+                    <img-overlay :src="posts[0].thumbnail" class="pointer overlay__rounded" />
                   </Link>
-                  <div class="post-theme__category-two--card-header">
+                  <div class="post-theme__category-two--card-header z-20">
                     <vs-row>
                       <vs-col class="mb-8">
                         <Link :href="route('badaso.post-theme.category', posts[0].category.slug)">
@@ -106,19 +100,15 @@
                   </div>
                 </div>
                 <div class="post-theme__category-two--card-content-container">
-                  <vue-clamp :max-lines="5" class="post-theme__category-two--card-description mb-16">
-                    {{ posts[0].summary }}
-                    <template slot="after">
-                      <Link :href="route('badaso.post-theme.post', posts[0].slug)" class="post-theme__category-two--read-more">
-                        Baca Selengkapnya
-                      </Link>
-                    </template>
-                  </vue-clamp>
-                  <vs-row vs-type="grid" class="h-100 place-content-start">
+                  <div class="post-theme__category-two--card-description line-clamp-3 mb-4" v-html="posts[0].content"></div>
+                  <Link :href="route('badaso.post-theme.post', posts[0].slug)" class="post-theme__category-two--read-more">
+                    Baca Selengkapnya
+                  </Link>
+                  <vs-row vs-type="grid" class="h-100 place-content-start mt-16">
                     <vs-col vs-w="12" vs-type="grid" vs-justify="center" vs-align="center" class="grid-column mb-8">
-                      <vs-icon icon="chat_bubble_outline" color="#4F4F4F" size="14px"></vs-icon> 
+                      <vs-icon icon="chat_bubble_outline" color="#4F4F4F" size="24px"></vs-icon> 
                       <span class="post-theme__showcase--icon-text ml-4">{{ posts[0].commentCount }}</span>
-                      <vs-icon icon="schedule" color="#4F4F4F" size="14px" class="ml-16"></vs-icon> 
+                      <vs-icon icon="schedule" color="#4F4F4F" size="24px" class="ml-16"></vs-icon> 
                       <span class="post-theme__showcase--icon-text ml-4">{{ $moment(posts[0].publishedAt, "LL") }}</span>
                     </vs-col>
                   </vs-row>
@@ -158,12 +148,14 @@
 <script>
 import VueClamp from 'vue-clamp';
 import { Link } from "@inertiajs/inertia-vue"
+import ImgOverlay from './img-overlay.vue';
 
 export default {
   name: "CategoryTypeTwo",
   components: {
     VueClamp,
-    Link
+    Link,
+    'img-overlay': ImgOverlay
   },
   data:()=>({
     posts: [],

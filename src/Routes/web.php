@@ -11,6 +11,7 @@ Route::prefix($post_route_prefix)
     ->middleware(['web', HandleInertiaRequests::class])
     ->group(function () {
         Route::get('/', HelpersRoute::getController('HomeController'))->name('home');
+        Route::get('/tag/{slug}', HelpersRoute::getController('TagController'))->name('tag');
         Route::get('/category/{slug}', HelpersRoute::getController('CategoryController'))->name('category');
         Route::get('/search/{slug?}', HelpersRoute::getController('SearchController'))->name('search');
         Route::get('/popular', HelpersRoute::getController('PopularController'))->name('popular');

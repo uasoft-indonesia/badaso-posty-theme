@@ -358,8 +358,8 @@ body {
 
       @media screen and (min-width: $xl) {
         font-size: 24px;
-        line-height: 30px;
-        font-weight: 500;
+        line-height: 28.06px;
+        font-weight: 400;
         margin: 16px auto;
         width: 75%;
       }
@@ -405,6 +405,12 @@ body {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      background-color: #2E99A5;
+      color: #fff;
+
+      & .overlay {
+        border-radius: 15px;
+      }
     }
 
     &--card-header-container {
@@ -421,7 +427,7 @@ body {
       & img {
         height: 320px;
         object-fit: cover;
-        border-radius: 15px;
+        border-radius: 15px 15px 0 0;
 
         @media screen and (min-width: $xl) {
           width: 100%;
@@ -483,10 +489,11 @@ body {
     &--card-header-chip {
       font-size: 10px;
       line-height: 14px;
-      border-radius: 15px;
+      border-radius: 5px;
       min-height: 16px;
       padding-right: 6px !important;
       cursor: pointer;
+      padding: 6px;
 
       @media screen and (min-width: $xl) {
         font-size: 12px;
@@ -495,13 +502,18 @@ body {
 
       & > span {
         margin-left: 6px !important;
+        text-transform: uppercase;
       }
     }
 
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      color: #4F4F4F;
+
+      & * {
+        color: #ffffff !important;
+        background-color: transparent !important;
+      }
 
       @media screen and (min-width: $xl) {
         font-size: 14px;
@@ -544,7 +556,7 @@ body {
     }
 
     &--read-more {
-      color: #4F4F4F;
+      color: #ffffff;
       font-weight: bold;
       cursor: pointer;
     }
@@ -573,7 +585,7 @@ body {
       & img {
         height: 320px;
         object-fit: cover;
-        border-radius: 15px;
+        border-radius: 15px 15px 0 0;
 
         @media screen and (min-width: $xl) {
           width: 100%;
@@ -645,7 +657,7 @@ body {
     &--card-header-chip {
       font-size: 10px;
       line-height: 14px;
-      border-radius: 15px;
+      border-radius: 5px;
       min-height: 16px;
       padding-right: 6px !important;
       cursor: pointer;
@@ -657,13 +669,19 @@ body {
 
       & > span {
         margin-left: 6px !important;
+        padding: 6px;
+        text-transform: uppercase;
       }
     }
 
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      color: #4F4F4F;
+      
+      & * {
+        color: #4F4F4F !important;
+        background-color: transparent !important;
+      }
 
       @media screen and (min-width: $xl) {
         font-size: 14px;
@@ -842,7 +860,11 @@ body {
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      color: #4F4F4F;
+      
+      & * {
+        color: #4F4F4F !important;
+        background-color: transparent !important;
+      }
 
       @media screen and (min-width: $xl) {
         font-size: 14px;
@@ -890,7 +912,7 @@ body {
   &__newest {
     &--card {
       border-radius: 15px;
-      box-shadow: none;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       width: 100%;
 
       & .vs-card--content {
@@ -906,7 +928,7 @@ body {
         cursor: pointer;
 
         @media screen and (min-width: $xl) {
-          padding: 20px;
+          padding: 16px 20px;
         }
 
         & > div {
@@ -940,6 +962,8 @@ body {
       line-height: 25px;
       color: #fff;
       text-transform: uppercase;
+      display: inline-flex;
+      column-gap: 8px;
     }
 
     &--content-title {
@@ -964,7 +988,11 @@ body {
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      color: #4F4F4F;
+      
+      & * {
+        color: #4F4F4F !important;
+        background-color: transparent !important;
+      }
     }
 
     &--read-more {
@@ -976,7 +1004,7 @@ body {
   &__popular {
     &--card {
       border-radius: 15px;
-      box-shadow: none;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
       width: 100%;
 
       & .vs-card--content {
@@ -992,7 +1020,7 @@ body {
         cursor: pointer;
 
         @media screen and (min-width: $xl) {
-          padding: 20px;
+          padding: 16px 20px;
         }
 
         & > div {
@@ -1021,11 +1049,13 @@ body {
       line-height: 25px;
       text-transform: uppercase;
       color: #fff;
+      display: inline-flex;
+      column-gap: 8px;
     }
 
     &--content-title {
       font-size: 16px;
-      color: #4F4F4F;
+      color: #000000;
 
       @media screen and (min-width: $xl) {
         font-size: 18px;
@@ -1146,15 +1176,22 @@ body {
     }
 
     &--social-media {
-      grid-template-columns: repeat(5, 24px);
+      display: flex;
+      justify-content: center;
       column-gap: 12px;
       row-gap: 8px;
       padding: 25px 0;
       background-color: #fff;
+
       @media screen and (min-width: $xl) {
         column-gap: 56px;
         row-gap: 0;
-    }
+      }
+
+      & > div {
+        width: 32px;
+        height: 32px;
+      }
     }
 
     &--social-media-icon {
@@ -1189,7 +1226,10 @@ body {
     }
 
     &--card {
-      border-radius: 15px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
       box-shadow: none;
       padding: 20px;
 
@@ -1199,10 +1239,45 @@ body {
       }
     }
 
+    &--card-other {
+      border-radius: 15px;
+      box-shadow: none;
+      margin-bottom: 0px;
+
+      & > .vs-card--content {
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    &--card-other-title {
+      font-size: 14px;
+      line-height: 16.37px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    &--card-other-content {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px 40px 20px;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 700;
+      color: #ffffff;
+      
+      &.rounded {
+        border-radius: 15px;
+      }
+    }
+
     &--thumbnail {
       width: 100%;
-      height: auto;
-      margin-bottom: 16px;
+      height: 100%;
+      display: block;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
     }
 
     &--content {
@@ -1216,7 +1291,7 @@ body {
 
         @media screen and (min-width: $xl) {
           font-size: 16px;
-          line-height: 20px;
+          line-height: 24px;
         }
       }
 
@@ -1351,6 +1426,7 @@ body {
       min-height: 18px !important;
       margin-top: auto;
       margin-bottom: auto;
+      border-radius: 5px;
 
       @media screen and (min-width: $xl) {
         font-size: 12px;
@@ -1359,6 +1435,8 @@ body {
 
       & span {
         margin-left: 8px !important;
+        text-transform: uppercase;
+        padding: 6px;
       }
     }
   }
@@ -1471,7 +1549,11 @@ body {
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      color: #4F4F4F;
+      
+      & * {
+        color: #4F4F4F !important;
+        background-color: transparent !important;
+      }
 
       @media screen and (min-width: $xl) {
         font-size: 13px;
@@ -1491,4 +1573,88 @@ body {
       justify-content: center !important;
     }
   }
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.shadow {
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 25%);
+}
+
+.shadow-none {
+  box-shadow: none;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  transition: .25s ease;
+  z-index: 10;
+
+  &__container {
+    &:hover .overlay {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__rounded {
+    & .overlay {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+  }
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+.relative {
+  position: relative;
+}
+
+.pa-20 {
+  padding: 20px;
+}
+
+.px-40 {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.py-24 {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.w-50 {
+  width: 50%;
 }
