@@ -24,7 +24,7 @@
                       <h3 class="post-theme__categories--content-title">{{ post.title }}</h3>
                     </Link>
                     <post-theme-info :post="post">
-                      <vs-icon icon="visibility" size="14px" class="ml-16" color="#4F4F4F"></vs-icon> 
+                      <vs-icon icon="visibility" size="14px" class="ml-16" color="#4F4F4F"></vs-icon>
                       <span class="post-theme__showcase--icon-text ml-4">{{ post.viewCount }}</span>
                     </post-theme-info>
                     <vue-clamp :max-lines="5" class="post-theme__categories--card-description">

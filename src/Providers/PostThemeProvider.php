@@ -24,19 +24,18 @@ class PostThemeProvider extends ServiceProvider
             return new PostTheme();
         });
 
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'badaso-post');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'post-theme');
-        $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'badaso-post');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'post-theme');
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/web.php');
 
         $this->publishes([
-            __DIR__.'/../Seeder'                       => database_path('seeders/Badaso/PostTheme'),
-            __DIR__.'/../Config/badaso-post-theme.php' => config_path('badaso-post-theme.php'),
-            __DIR__.'/../Images/'                      => storage_path('app/public/photos/shares'),
-            __DIR__.'/../resources/customization/'     => resource_path('js/badaso/theme/post-theme/'),
+            __DIR__ . '/../Seeder'                       => database_path('seeders/Badaso/PostTheme'),
+            __DIR__ . '/../Config/badaso-post-theme.php' => config_path('badaso-post-theme.php'),
+            __DIR__ . '/../Images/'                      => storage_path('app/public/photos/shares'),
         ], 'BadasoPostTheme');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/uasoft-indonesia/post-theme'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/uasoft-indonesia/post-theme'),
         ], 'BadasoPostThemeViews');
     }
 

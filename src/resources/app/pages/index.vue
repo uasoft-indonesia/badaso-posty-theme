@@ -87,7 +87,7 @@ export default {
     },
     getThumbnails() {
       let thumbnails = [];
-      
+
       this.posts.data.forEach(element => {
         if (element.thumbnail) {
           thumbnails.push(element);

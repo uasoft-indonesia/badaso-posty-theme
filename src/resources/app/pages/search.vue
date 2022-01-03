@@ -37,7 +37,7 @@
                 </vs-row>
               </div>
             </vs-card>
-            
+
             <pagination v-model="page" class="mt-30 mb-30" :data="posts"></pagination>
           </vs-col>
         </vs-row>

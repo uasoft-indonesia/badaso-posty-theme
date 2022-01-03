@@ -38,9 +38,9 @@
           </vs-col>
           <vs-divider class="mb-16 mt-16" />
           <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
-            <vs-icon icon="schedule" color="#4F4F4F" size="14px"></vs-icon> 
+            <vs-icon icon="schedule" color="#4F4F4F" size="14px"></vs-icon>
             <span class="post-theme__showcase--icon-text ml-4">{{ $moment(post.publishedAt, "LL") }}</span>
-            <vs-icon icon="edit" size="14px" class="ml-16" color="#4F4F4F"></vs-icon> 
+            <vs-icon icon="edit" size="14px" class="ml-16" color="#4F4F4F"></vs-icon>
             <span class="post-theme__showcase--icon-text ml-4">{{ post.user.name }}</span>
           </vs-col>
           <vs-divider class="mb-16 mt-16" />
