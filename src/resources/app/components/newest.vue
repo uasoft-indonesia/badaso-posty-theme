@@ -6,12 +6,12 @@
     <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts && posts.length > 0">
       <vs-col>
         <vs-card class="post-theme__newest--card mb-0">
-          <Link slot="header" :href="route('badaso.post-theme.newest')">
+          <Link slot="header" :href="route('badaso.post-theme.newest')" class="post-theme__newest--title">
             <vs-icon icon="schedule" color="white"></vs-icon>
-            <Link :href="route('badaso.post-theme.newest')" class="post-theme__newest--title ml-8">Berita Terbaru</Link>
+            Berita Terbaru
           </Link>
           <div class="post-theme__newest--card-content-container" v-for="(post, index) in posts" :key="index">
-            <vs-row vs-type="flex" vs-justify="center" vs-align="center">
+            <vs-row vs-type="flex" :vs-justify="$isMobile() ? 'start' : 'center'" vs-align="center">
               <vs-col vs-xs="12" vs-sm="12" vs-lg="4">
                 <Link :href="route('badaso.post-theme.post', post.slug)">
                   <img :src="post.thumbnail" :class="{pointer: true, 'mb-20': $isMobile()}">
@@ -35,12 +35,9 @@
                   <span class="post-theme__showcase--icon-text ml-4">{{ $moment(post.publishedAt, "LL") }}</span>
                 </vs-col>
               </vs-row>
-              <vue-clamp v-if="$isMobile()" :max-lines="5" class="post-theme__newest--card-description">
-                {{ post.summary }}
-                <template slot="after">
-                  <Link :href="route('badaso.post-theme.post', post.slug)" class="post-theme__newest--read-more">Baca Selengkapnya</Link>
-                </template>
-              </vue-clamp>
+
+              <div v-if="$isMobile()" class="post-theme__newest--card-description line-clamp-3" v-html="post.content"></div>
+              <Link v-if="$isMobile()" :href="route('badaso.post-theme.post', post.slug)" class="post-theme__newest--read-more">Baca Selengkapnya</Link>
               <vs-divider v-if="index !== posts.length - 1"/>
             </vs-row>
           </div>
