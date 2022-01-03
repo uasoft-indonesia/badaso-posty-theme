@@ -65,7 +65,6 @@ $measurement_id = env('MIX_ANALYTICS_TRACKING_ID', null);
   <!-- End Google Analytics -->
 
   ...
-
 </head>
 ...
 </html>
