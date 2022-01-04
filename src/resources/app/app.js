@@ -25,6 +25,25 @@ Vue.prototype.$constants = {
   DESKTOP: "desktop",
 };
 
+Inertia.on("navigate", (event) => {
+  setTimeout(() => {
+    window.titleElement = event.srcElement
+      .getElementById("app")
+      .getElementsByClassName("post-theme__post--title");
+
+    const page_title = window.titleElement[0]?.innerText ?? document.title;
+    const { href: page_location, pathname: page_path } = window.location;
+    const configuration = {
+      page_title,
+      page_location,
+      page_path,
+    };
+
+    gtag("js", new Date());
+    gtag("config", window.measurement_id, configuration);
+  }, 1000);
+});
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
