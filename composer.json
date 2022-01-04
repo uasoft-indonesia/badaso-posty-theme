@@ -1,50 +1,50 @@
 {
-    "version": "2.0.1",
-    "name": "badaso/post-theme",
-    "description": "Official theme for post system on badaso",
-    "keywords": [
-        "laravel",
-        "admin",
-        "panel",
-        "dashboard",
-        "pwa",
-        "vue",
-        "generator",
-        "blog",
-        "badaso",
-        "blog",
-        "news"
-    ],
-    "license": "proprietary",
-    "homepage": "https://badaso.uatech.co.id/",
-    "support": {
-        "issues": "https://github.com/uasoft-indonesia/badaso-post-theme/issues",
-        "discussion": "https://github.com/uasoft-indonesia/badaso-post-theme/discussions",
-        "source": "https://github.com/uasoft-indonesia/badaso-post-theme"
-    },
-    "type": "library",
-    "require": {
-        "badaso/content-module": "^2.0",
-        "inertiajs/inertia-laravel": "^0.4.5",
-        "tightenco/ziggy": "^1.4"
-    },
-    "authors": [
-        {
-            "name": "UASOFT",
-            "email": "hello@uatech.co.id"
-        }
-    ],
-    "minimum-stability": "alpha",
-    "autoload": {
-        "psr-4": {
-            "Uasoft\\Badaso\\Theme\\PostTheme\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
-            ]
-        }
+  "version": "2.0.2",
+  "name": "badaso/post-theme",
+  "description": "Official theme for post system on badaso",
+  "keywords": [
+    "laravel",
+    "admin",
+    "panel",
+    "dashboard",
+    "pwa",
+    "vue",
+    "generator",
+    "blog",
+    "badaso",
+    "blog",
+    "news"
+  ],
+  "license": "proprietary",
+  "homepage": "https://badaso.uatech.co.id/",
+  "support": {
+    "issues": "https://github.com/uasoft-indonesia/badaso-post-theme/issues",
+    "discussion": "https://github.com/uasoft-indonesia/badaso-post-theme/discussions",
+    "source": "https://github.com/uasoft-indonesia/badaso-post-theme"
+  },
+  "type": "library",
+  "require": {
+    "badaso/content-module": "^2.0",
+    "inertiajs/inertia-laravel": "^0.4.5",
+    "tightenco/ziggy": "^1.4"
+  },
+  "authors": [
+    {
+      "name": "UASOFT",
+      "email": "hello@uatech.co.id"
     }
+  ],
+  "minimum-stability": "alpha",
+  "autoload": {
+    "psr-4": {
+      "Uasoft\\Badaso\\Theme\\PostTheme\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
+      ]
+    }
+  }
 }
