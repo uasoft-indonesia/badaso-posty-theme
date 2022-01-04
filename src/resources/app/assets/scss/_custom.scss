@@ -1,5 +1,5 @@
 * {
-  font-family: 'Quicksand';
+  font-family: 'Karla', 'sans-serif';
 }
 
 @mixin clearfix() {
@@ -216,7 +216,7 @@ body {
         line-height: 30px;
         margin: 35px 0;
       }
-      
+
       & * {
         cursor: pointer;
         color: #fff;
@@ -436,7 +436,7 @@ body {
         }
       }
     }
-    
+
     &--card-header-container-secondary {
       position: relative;
       color: white;
@@ -594,7 +594,7 @@ body {
         }
       }
     }
-    
+
     &--card-header-container-secondary {
       position: relative;
       color: white;
@@ -677,7 +677,7 @@ body {
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      
+
       & * {
         color: #4F4F4F !important;
         background-color: transparent !important;
@@ -729,7 +729,7 @@ body {
       cursor: pointer;
     }
   }
-  
+
   &__other {
     &--card {
       border-radius: 15px;
@@ -772,7 +772,7 @@ body {
         margin: 30px 0;
       }
     }
-    
+
     &--card-header-container-secondary {
       position: relative;
       color: white;
@@ -860,7 +860,7 @@ body {
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      
+
       & * {
         color: #4F4F4F !important;
         background-color: transparent !important;
@@ -988,7 +988,7 @@ body {
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      
+
       & * {
         color: #4F4F4F !important;
         background-color: transparent !important;
@@ -1088,7 +1088,7 @@ body {
         border-radius: 0 0 15px 15px;
         z-index: 1000;
       }
-      
+
       & > .vs-card--content {
         padding: 20px;
         margin-bottom: 0px;
@@ -1111,7 +1111,7 @@ body {
         border-radius: 15px 15px 0 0;
         z-index: 0;
       }
-      
+
       & > .vs-card--content {
         margin-bottom: 0px;
       }
@@ -1266,7 +1266,7 @@ body {
       line-height: 22px;
       font-weight: 700;
       color: #ffffff;
-      
+
       &.rounded {
         border-radius: 15px;
       }
@@ -1549,7 +1549,7 @@ body {
     &--card-description {
       font-size: 12px;
       line-height: 16px;
-      
+
       & * {
         color: #4F4F4F !important;
         background-color: transparent !important;
