@@ -42,7 +42,7 @@ Inertia.on("navigate", (event) => {
 
     gtag("js", new Date());
     gtag("config", window.measurement_id, configuration);
-  }, 1000);
+  }, 10);
 });
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
