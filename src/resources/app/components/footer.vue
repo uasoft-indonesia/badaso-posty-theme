@@ -36,13 +36,13 @@
       </vs-row>
     </vs-card>
     <vs-card class="post-theme__footer--card-bottom mb-0">
-      <vs-row vs-type="grid" vs-justify="center" class="post-theme__footer--social-media">
+      <div class="post-theme__footer--social-media">
         <div v-for="(socialMedia, index) in getSocialMedia" :key="index">
           <a :href="socialMedia.data.url.data.url" class="post-theme__footer--social-media-icon">
             <img :src="socialMedia.data.image.data" :alt="socialMedia.data.url.data.text">
           </a>
         </div>
-      </vs-row>
+      </div>
     </vs-card>
   </footer>
 </template>

@@ -48,18 +48,58 @@
             <img :src="post.thumbnail" class="post-theme__post--thumbnail">
           </vs-col>
           <vs-col>
-            <vs-card class="post-theme__post--card mb-0">
+            <vs-card class="post-theme__post--card mb-0 shadow">
               <p class="post-theme__post--content" v-html="post.content"></p>
             </vs-card>
           </vs-col>
           <vs-divider class="mb-16 mt-16" />
           <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
-            <vs-icon icon="share" size="18px" color="#4F4F4F"></vs-icon> <span class="ml-4 mr-16 post-theme__post--tag">TAG: </span>
+            <vs-icon icon="local_offer" size="18px" color="#4F4F4F"></vs-icon> <span class="ml-4 mr-16 post-theme__post--tag">TAG: </span>
             <Link v-for="(tag, index) in post.tags" :key="index" :href="route('badaso.post-theme.tag', tag.slug)">
               <vs-chip color="#2E99A5" class="post-theme__post--tag-chip mr-8">{{ tag.title }}</vs-chip>
             </Link>
           </vs-col>
           <vs-divider class="mb-16 mt-16" />
+          <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
+            <vs-icon icon="share" size="18px" color="#4F4F4F"></vs-icon> <span class="ml-4 post-theme__post--share">SHARE: </span>
+
+            <vs-row vs-justify="start" vs-align="center" vs-type="flex" class="ml-16">
+              <vs-col vs-xs="2" vs-sm="2" vs-lg="1" vs-align="center" vs-type="flex" vs-justify="center" v-for="(socialMedia, index) in getSocialMedia" :key="index">
+                <a :href="socialMedia.data.url.data.url" class="post-theme__footer--social-media-icon">
+                  <img :src="socialMedia.data.image.data" :alt="socialMedia.data.url.data.text">
+                </a>
+              </vs-col>
+            </vs-row>
+          </vs-col>
+          <vs-divider class="mb-16 mt-16" />
+          <vs-col vs-w="12" vs-align="center" vs-type="flex" v-if="!$isMobile()">
+            <vs-card class="post-theme__post--card-other mb-0 shadow py-24 px-40">
+              <div class="flex justify-content-between align-items-center">
+                <div class="post-theme__post--card-other-title">Berita Lainnya</div>
+                <vs-icon icon="shuffle"></vs-icon>
+              </div>
+
+              <vs-divider class="mb-15 mt-15" />
+
+              <div class="flex gap-6">
+                <vs-card class="post-theme__post--card-other w-50 shadow-none" v-if="next">
+                  <Link :href="route('badaso.post-theme.post', next.slug)">
+                    <div class="post-theme__post--card-other-content rounded line-clamp-3" :style="`background-image: url('${next.thumbnail}')`">
+                      {{ next.title }}
+                    </div>
+                  </Link>
+                </vs-card>
+                <vs-card class="post-theme__post--card-other w-50 shadow-none" v-if="previous">
+                  <Link :href="route('badaso.post-theme.post', previous.slug)">
+                    <div class="post-theme__post--card-other-content rounded line-clamp-3" :style="`background-image: url('${previous.thumbnail}')`">
+                      {{ previous.title }}
+                    </div>
+                  </Link>
+                </vs-card>
+              </div>
+            </vs-card>
+          </vs-col>
+          <vs-divider color="transparent" class="mb-16 mt-16" />
           <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
             <vs-row vs-justify="flex-start" vs-align="center" vs-type="flex">
               <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex" class="mb-20">
@@ -135,7 +175,9 @@ export default {
       { text: "Newest", value: "desc" },
       { text: "Oldest", value: "asc" },
     ],
-    comment: ""
+    comment: "",
+    next: null,
+    previous: null
   }),
   computed: {
     isShowButton() {
@@ -168,6 +210,8 @@ export default {
         })
         .then((res) => {
           this.post = res.data.post;
+          this.next = res.data.next;
+          this.previous = res.data.previous;
           this.loading = false;
         })
         .catch((err) => {

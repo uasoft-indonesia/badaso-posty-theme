@@ -6,9 +6,9 @@
     <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts && posts.length > 0">
       <vs-col>
         <vs-card class="post-theme__popular--card mb-0">
-          <Link slot="header" :href="route('badaso.post-theme.popular')">
+          <Link slot="header" :href="route('badaso.post-theme.popular')" class="post-theme__popular--title">
             <vs-icon icon="thumb_up_alt" color="white"></vs-icon>
-            <Link :href="route('badaso.post-theme.popular')" class="post-theme__popular--title ml-8">Berita Terpopuler</Link>
+            Berita Terpopuler
           </Link>
           <div class="post-theme__popular--card-content-container" v-for="(post, index) in posts" :key="index">
             <vs-row vs-justify="center" vs-align="center">
