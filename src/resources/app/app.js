@@ -1,5 +1,6 @@
 import Vue from "vue";
 import { createInertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue'
+import { Inertia } from "@inertiajs/inertia";
 import { Datetime } from "vue-datetime";
 import moment from "moment"
 import _ from "lodash"
