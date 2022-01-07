@@ -1285,14 +1285,19 @@ body {
         margin-bottom: 16px;
       }
 
-      & p {
-        font-size: 12px;
+      & p, & ul, & li, & span {
+        font-size: 12px !important;
         line-height: 18px;
 
         @media screen and (min-width: $xl) {
-          font-size: 16px;
+          font-size: 16px !important;
           line-height: 24px;
         }
+      }
+
+      & img {
+        width: 100%;
+        height: auto;
       }
 
       & > img {
