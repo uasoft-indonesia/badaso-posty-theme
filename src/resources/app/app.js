@@ -1,21 +1,24 @@
 import Vue from "vue";
-import { createInertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue'
+import {
+  createInertiaApp,
+  plugin as InertiaPlugin,
+} from "@inertiajs/inertia-vue";
 import { Inertia } from "@inertiajs/inertia";
 import { Datetime } from "vue-datetime";
-import moment from "moment"
-import _ from "lodash"
+import moment from "moment";
+import _ from "lodash";
 import VueMobileDetection from "vue-mobile-detection";
 
 import api from "./api/index";
-import store from "./store/store"
-import Vuesax from 'vuesax'
+import store from "./store/store";
+import Vuesax from "vuesax";
 
 Vue.config.productionTip = false;
 Vue.config.devtools = true;
 Vue.component("datetime", Datetime);
-Vue.use(Vuesax)
-Vue.use(VueMobileDetection)
-Vue.mixin({ methods: { route } })
+Vue.use(Vuesax);
+Vue.use(VueMobileDetection);
+Vue.mixin({ methods: { route } });
 Vue.use(InertiaPlugin);
 Vue.prototype.$api = api;
 Vue.prototype.$moment = (date, format) => {
@@ -40,28 +43,38 @@ Inertia.on("navigate", (event) => {
       page_path,
     };
 
-    gtag("js", new Date());
-    gtag("config", window.measurement_id, configuration);
-  }, 10);
+    if (gtag) {
+      gtag("js", new Date());
+      gtag("config", window.measurement_id, configuration);
+    }
+  }, 100);
 });
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName =
+  window.document.getElementsByTagName("title")[0]?.innerText || "Laravel";
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
-  resolve: name => {
-    const isExists = require.context('./../../../../../../resources/js/badaso/theme/post-theme/pages', false, /\.vue$/).keys().some(key => key.includes(name));
+  resolve: (name) => {
+    const isExists = require
+      .context(
+        "./../../../../../../resources/js/badaso/theme/post-theme/pages",
+        false,
+        /\.vue$/
+      )
+      .keys()
+      .some((key) => key.includes(name));
 
     if (isExists) {
       return require(`./../../../../../../resources/js/badaso/theme/post-theme/pages/${name}.vue`);
     } else {
-      return require(`./pages/${name}.vue`)
+      return require(`./pages/${name}.vue`);
     }
   },
   setup({ el, App, props }) {
     new Vue({
       store,
-      render: h => h(App, props),
-    }).$mount(el)
+      render: (h) => h(App, props),
+    }).$mount(el);
   },
-})
+});
