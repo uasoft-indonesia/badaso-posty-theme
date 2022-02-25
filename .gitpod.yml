@@ -23,9 +23,12 @@ tasks:
       php artisan badaso-post-theme:setup &&
       php artisan badaso-content:setup &&
       sed -i 's/http:\/\/localhost//g' .env &&
-      sed -i 's/FILESYSTEM_DRIVER=local/FILESYSTEM_DRIVER=public/g' .env &&
       sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
       sed -i "s|APP_URL=https://|APP_URL=https://8000-|g" .env &&
+      sed -i 's/MIX_FRONTEND_URL=:8000/MIX_FRONTEND_URL=/g' .env &&
+      sed -i "s|MIX_FRONTEND_URL=|MIX_FRONTEND_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
+      sed -i "s|MIX_FRONTEND_URL=https://|MIX_FRONTEND_URL=https://8000-|g" .env &&
+      sed -i 's/FILESYSTEM_DRIVER=local/FILESYSTEM_DRIVER=public/g' .env &&
       sed -i 's/MIX_DEFAULT_MENU=general/MIX_DEFAULT_MENU=general,post-module,post-theme,content-module/g' .env &&
       sed -i 's/MIX_BADASO_MENU=${MIX_DEFAULT_MENU}/MIX_BADASO_MENU=${MIX_DEFAULT_MENU},post-module,post-theme,content-module/g' .env &&
       echo -e "\nMIX_BADASO_MODULES=post-module,post-theme,content-module" >> .env &&
