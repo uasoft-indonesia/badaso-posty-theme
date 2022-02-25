@@ -7,7 +7,7 @@ tasks:
       mv {,.}* laravel/packages/badaso/post-theme 2>/dev/null; true &&
       cd laravel/packages/badaso &&
       git clone --branch 2.x --single-branch https://github.com/uasoft-indonesia/badaso.git core &&
-      git clone https://github.com/uasoft-indonesia/badaso-post-module.git &&
+      git clone https://github.com/uasoft-indonesia/badaso-post-module.git post-module &&
       git clone https://github.com/uasoft-indonesia/badaso-content-module.git content-module &&
       cd ../../ &&
       cp packages/badaso/post-theme/.gitpod/AppServiceProvider.php app/Providers/AppServiceProvider.php &&
