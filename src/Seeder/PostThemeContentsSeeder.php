@@ -2,7 +2,9 @@
 
 namespace Database\Seeders\Badaso\PostTheme;
 
+use Exception;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Uasoft\Badaso\Module\Content\Models\Content;
 
 class PostThemeContentsSeeder extends Seeder
@@ -12,7 +14,7 @@ class PostThemeContentsSeeder extends Seeder
      */
     public function run()
     {
-        \DB::beginTransaction();
+        DB::beginTransaction();
 
         try {
             $contents = [
@@ -28,9 +30,9 @@ class PostThemeContentsSeeder extends Seeder
                 Content::create($content);
             }
 
-            \DB::commit();
+            DB::commit();
         } catch (Exception $e) {
-            \DB::rollBack();
+            DB::rollBack();
 
             throw new Exception('Exception occur '.$e);
         }
