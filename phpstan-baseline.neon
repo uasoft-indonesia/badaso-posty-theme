@@ -3,5 +3,6 @@ parameters:
     - '#Call to an undefined static method Uasoft\\Badaso\\Module\\Content\\Models\\[a-zA-Z0-9-()\_]+::[a-zA-Z0-9-()\_]+.#'
     - '#Call to an undefined static method Uasoft\\Badaso\\Models\\[a-zA-Z0-9-()\_]+::[a-zA-Z0-9-()\_]+.#'
     - '#Static method Inertia\\[a-zA-Z0-9-()\_]+::[a-zA-Z0-9-()\_]+ invoked with 3 parameters, 1-2 required+.#'
+    - '#Call to static method [a-zA-Z0-9-()\_]+ on an unknown class Uasoft\\Badaso\\Module\\Post\\Models\\[a-zA-Z0-9-()\_]+.#'
 
 
