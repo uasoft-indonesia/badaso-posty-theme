@@ -63,7 +63,3 @@ jobs:
       - name: Badaso PostTheme test PHPStan
         run: cd laravel &&
              ./vendor/bin/phpstan analyse -c vendor/badaso/post-theme/phpstan.neon.dist
-             
-             
-             
-             
