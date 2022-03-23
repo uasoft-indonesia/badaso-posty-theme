@@ -50,8 +50,8 @@ jobs:
         run: git branch &&
           cd laravel &&
           composer require badaso/core:2.x-dev &&
-          composer require badaso/content-module:--with-all-dependencies &&
-          composer require badaso/post-theme:--with-all-dependencies &&
+          composer require badaso/content-module:dev-task/change-support-laravel9 -W &&
+          composer require badaso/post-theme:dev-${GITHUB_HEAD_REF} -W &&
           composer update --no-interaction
 
       # Laravel setup
