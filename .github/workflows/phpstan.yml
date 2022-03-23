@@ -59,7 +59,7 @@ jobs:
         run: cd laravel &&
           php artisan badaso:setup --force
 
-      # Badaso CommerceModule Test PHPStan
-      - name: Badaso CommerceModule test PHPStan
+      # Badaso PostTheme Test PHPStan
+      - name: Badaso PostTheme test PHPStan
         run: cd laravel &&
-             ./vendor/bin/phpstan analyse -c vendor/badaso/commerce-module/phpstan.neon.dist
+             ./vendor/bin/phpstan analyse -c vendor/badaso/post-theme/phpstan.neon.dist
