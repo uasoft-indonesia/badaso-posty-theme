@@ -47,5 +47,8 @@
                 "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
             ]
         }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.4"
     }
 }
