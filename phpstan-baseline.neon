@@ -1,8 +1,7 @@
 parameters:
-    excludePaths:
-    - src/Middlewares/HandleInertiaRequests.php
-    - src/Seeder/*.php
-
     ignoreErrors:
     - '#Static method Inertia\\[a-zA-Z0-9-()\_]+::[a-zA-Z0-9-()\_]+ invoked with 3 parameters, 1-2 required+.#'
+    - '#Call to an undefined static method Uasoft\\Badaso\\Models\\[a-zA-Z0-9-()\_]+::[a-zA-Z0-9-()\_]+.#'
+    - '#Call to an undefined static method Uasoft\\Badaso\\Module\\Content\\Models\\Content::[a-zA-Z0-9-()\_]+.#'
+
 

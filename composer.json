@@ -49,6 +49,10 @@
         }
     },
     "require-dev": {
-        "phpstan/phpstan": "^1.4"
+        "phpstan/phpstan": "^1.4",
+        "badaso/core": "^2.4.10",
+        "orchestra/testbench": "*",
+        "badaso/post-module": "^2.2.1",
+        "badaso/content-module": "^2.0.1"
     }
 }
