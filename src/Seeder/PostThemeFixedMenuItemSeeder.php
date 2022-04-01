@@ -2,7 +2,9 @@
 
 namespace Database\Seeders\Badaso\PostTheme;
 
+use Exception;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Uasoft\Badaso\Models\Menu;
 use Uasoft\Badaso\Models\MenuItem;
 
@@ -17,7 +19,7 @@ class PostThemeFixedMenuItemSeeder extends Seeder
      */
     public function run()
     {
-        \DB::beginTransaction();
+        DB::beginTransaction();
 
         try {
             $menu_id = Menu::where('key', 'post-theme')->firstOrFail()->id;
@@ -49,9 +51,9 @@ class PostThemeFixedMenuItemSeeder extends Seeder
             }
         } catch (Exception $e) {
             throw new Exception('Exception occur '.$e);
-            \DB::rollBack();
+            DB::rollBack();
         }
 
-        \DB::commit();
+        DB::commit();
     }
 }

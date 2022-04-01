@@ -24,7 +24,8 @@
     },
     "type": "library",
     "require": {
-        "badaso/content-module": "^2.0",
+        "symfony/var-exporter": "*",
+        "badaso/content-module": "*",
         "inertiajs/inertia-laravel": "^0.4.5",
         "tightenco/ziggy": "^1.4"
     },
@@ -46,5 +47,12 @@
                 "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
             ]
         }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.4",
+        "badaso/core": "^2.4.10",
+        "orchestra/testbench": "*",
+        "badaso/post-module": "^2.2.1",
+        "badaso/content-module": "^2.0.1"
     }
 }
