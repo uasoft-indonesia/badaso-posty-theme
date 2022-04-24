@@ -1,7 +1,7 @@
 {
     "version": "2.0.4",
-    "name": "badaso/post-theme",
-    "description": "Official theme for post system on badaso",
+    "name": "badaso/posty-theme",
+    "description": "Official free theme for post module on badaso",
     "keywords": [
         "laravel",
         "admin",
@@ -16,11 +16,11 @@
         "news"
     ],
     "license": "proprietary",
-    "homepage": "https://badaso.uatech.co.id/",
+    "homepage": "https://badaso-posty.uatech.co.id/",
     "support": {
-        "issues": "https://github.com/uasoft-indonesia/badaso-post-theme/issues",
-        "discussion": "https://github.com/uasoft-indonesia/badaso-post-theme/discussions",
-        "source": "https://github.com/uasoft-indonesia/badaso-post-theme"
+        "issues": "https://github.com/uasoft-indonesia/badaso-posty-theme/issues",
+        "discussion": "https://github.com/uasoft-indonesia/badaso-posty-theme/discussions",
+        "source": "https://github.com/uasoft-indonesia/badaso-posty-theme"
     },
     "type": "library",
     "require": {
