@@ -1,5 +1,5 @@
 {
-    "version": "2.0.4",
+    "version": "2.1.0",
     "name": "badaso/posty-theme",
     "description": "Official free theme for post module on badaso",
     "keywords": [
@@ -38,13 +38,13 @@
     "minimum-stability": "alpha",
     "autoload": {
         "psr-4": {
-            "Uasoft\\Badaso\\Theme\\PostTheme\\": "src/"
+            "Uasoft\\Badaso\\Theme\\PostyTheme\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
+                "Uasoft\\Badaso\\Theme\\PostyTheme\\Providers\\PostyThemeProvider"
             ]
         }
     },

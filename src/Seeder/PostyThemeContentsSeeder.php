@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Seeders\Badaso\PostTheme;
+namespace Database\Seeders\Badaso\PostyTheme;
 
 use Exception;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Uasoft\Badaso\Module\Content\Models\Content;
 
-class PostThemeContentsSeeder extends Seeder
+class PostyThemeContentsSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -19,8 +19,8 @@ class PostThemeContentsSeeder extends Seeder
         try {
             $contents = [
                 0 => [
-                    'slug'  => 'post-theme-social-media',
-                    'label' => 'Post Theme Social Media',
+                    'slug'  => 'posty-theme-social-media',
+                    'label' => 'Posty Theme Social Media',
                     'value' => '{"facebook":{"name":"facebook","label":"Facebook","type":"group","data":{"image":{"name":"image","label":"Image","type":"image","data":"photos/shares/facebook.svg"},"url":{"name":"url","label":"URL","type":"url","data":{"url":"#","text":"Facebook Logo"}}}},"twitter":{"name":"twitter","label":"Twitter","type":"group","data":{"image":{"name":"image","label":"Image","type":"image","data":"photos/shares/twitter.svg"},"url":{"name":"url","label":"URL","type":"url","data":{"url":"#","text":"Twitter Logo"}}}},"instagram":{"name":"instagram","label":"Instagram","type":"group","data":{"image":{"name":"image","label":"Image","type":"image","data":"photos/shares/instagram.svg"},"url":{"name":"url","label":"URL","type":"url","data":{"url":"#","text":"Instagram Logo"}}}},"telegram":{"name":"telegram","label":"Telegram","type":"group","data":{"image":{"name":"image","label":"Image","type":"image","data":"photos/shares/telegram.svg"},"url":{"name":"url","label":"URL","type":"url","data":{"url":"#","text":"Telegram Logo"}}}},"youtube":{"name":"youtube","label":"Youtube","type":"group","data":{"image":{"name":"image","label":"Image","type":"image","data":"photos/shares/youtube.svg"},"url":{"name":"url","label":"URL","type":"url","data":{"url":"#","text":"Youtube Logo"}}}}}',
                 ],
             ];

@@ -1,12 +1,12 @@
 <?php
 
-namespace Database\Seeders\Badaso\PostTheme;
+namespace Database\Seeders\Badaso\PostyTheme;
 
 use Illuminate\Database\Seeder;
 use Uasoft\Badaso\Models\Permission;
 use Uasoft\Badaso\Models\Role;
 
-class PostThemePermissionsSeeder extends Seeder
+class PostyThemePermissionsSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -14,8 +14,8 @@ class PostThemePermissionsSeeder extends Seeder
     public function run()
     {
         $keys = [
-            'browse_post_theme_configuration',
-            'edit_post_theme_configuration',
+            'browse_posty_theme_configuration',
+            'edit_posty_theme_configuration',
         ];
 
         $administrator = Role::where('name', 'administrator')->firstOrFail();

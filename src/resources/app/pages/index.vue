@@ -42,7 +42,7 @@ import Other from './../components/other'
 import defaultLayout from './../layouts/default';
 
 export default {
-  name: "PostThemeHome",
+  name: "PostyThemeHome",
   layout: defaultLayout,
   components: {
     Carousel,

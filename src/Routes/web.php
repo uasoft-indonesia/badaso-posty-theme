@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Uasoft\Badaso\Theme\PostTheme\Helpers\Route as HelpersRoute;
-use Uasoft\Badaso\Theme\PostTheme\Middlewares\HandleInertiaRequests;
+use Uasoft\Badaso\Theme\PostyTheme\Helpers\Route as HelpersRoute;
+use Uasoft\Badaso\Theme\PostyTheme\Middlewares\HandleInertiaRequests;
 
-$post_route_prefix = config('badaso-post-theme.post_theme_prefix');
+$posty_route_prefix = config('badaso-posty-theme.posty_theme_prefix');
 
-Route::prefix($post_route_prefix)
-    ->as('badaso.post-theme.')
+Route::prefix($posty_route_prefix)
+    ->as('badaso.posty-theme.')
     ->middleware(['web', HandleInertiaRequests::class])
     ->group(function () {
         Route::get('/', HelpersRoute::getController('HomeController'))->name('home');

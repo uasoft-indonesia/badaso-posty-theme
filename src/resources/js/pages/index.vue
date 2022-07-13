@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import PostThemeConfigurationBrowse from "./configuration/browse";
+import PostyThemeConfigurationBrowse from "./configuration/browse";
 
 export default {
   components: {
-    PostThemeConfigurationBrowse,
+    PostyThemeConfigurationBrowse,
   },
-  name: "PostEntryIndex",
+  name: "PostyEntryIndex",
   data: () => ({
     globalComponentList: {},
     defaultComponent: null,

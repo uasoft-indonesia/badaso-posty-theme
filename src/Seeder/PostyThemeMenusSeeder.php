@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Seeders\Badaso\PostTheme;
+namespace Database\Seeders\Badaso\PostyTheme;
 
 use Exception;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Uasoft\Badaso\Models\Menu;
 
-class PostThemeMenusSeeder extends Seeder
+class PostyThemeMenusSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -23,8 +23,8 @@ class PostThemeMenusSeeder extends Seeder
         try {
             $menus = [
                 0 => [
-                    'key'          => 'post-theme',
-                    'display_name' => 'Post Theme',
+                    'key'          => 'posty-theme',
+                    'display_name' => 'Posty Theme',
                 ],
             ];
 
