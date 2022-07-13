@@ -29,10 +29,10 @@ class PostyThemeProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
 
         $this->publishes([
-            __DIR__.'/../Seeder'                       => database_path('seeders/Badaso/PostyTheme'),
+            __DIR__.'/../Seeder'                        => database_path('seeders/Badaso/PostyTheme'),
             __DIR__.'/../Config/badaso-posty-theme.php' => config_path('badaso-posty-theme.php'),
-            __DIR__.'/../Images/'                      => storage_path('app/public/photos/shares'),
-            __DIR__.'/../resources/customization/'     => resource_path('js/badaso/theme/posty-theme/'),
+            __DIR__.'/../Images/'                       => storage_path('app/public/photos/shares'),
+            __DIR__.'/../resources/customization/'      => resource_path('js/badaso/theme/posty-theme/'),
         ], 'BadasoPostyTheme');
 
         $this->publishes([
