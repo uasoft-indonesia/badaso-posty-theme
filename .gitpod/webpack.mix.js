@@ -26,14 +26,14 @@ mix
   )
   .vue();
 
-// Post Theme
+// Posty Theme
 mix
   .js(
-    "packages/badaso/post-theme/src/resources/app/app.js",
-    "public/js/post-theme.js"
+    "packages/badaso/posty-theme/src/resources/app/app.js",
+    "public/js/posty-theme.js"
   )
   .sass(
-    "packages/badaso/post-theme/src/resources/app/assets/scss/style.scss",
-    "public/css/post-theme.css"
+    "packages/badaso/posty-theme/src/resources/app/assets/scss/style.scss",
+    "public/css/posty-theme.css"
   )
   .vue();
