@@ -1,5 +1,5 @@
-import resource from "../../../../../../../../vendor/badaso/core/src/resources/js/api/resource";
-import QueryString from "../../../../../../../../vendor/badaso/core/src/resources/js/api/query-string";
+import resource from "../../../../../../core/src/resources/js/api/resource";
+import QueryString from "../../../../../../core/src/resources/js/api/query-string";
 
 let apiPrefix = process.env.MIX_API_ROUTE_PREFIX
   ? "/" + process.env.MIX_API_ROUTE_PREFIX + "/module/post"
