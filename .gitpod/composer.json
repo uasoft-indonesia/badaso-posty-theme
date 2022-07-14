@@ -48,7 +48,7 @@
       "Database\\Seeders\\": "database/seeders/",
       "Uasoft\\Badaso\\": "packages/badaso/core/src/",
       "Uasoft\\Badaso\\Module\\Post\\": "packages/badaso/post-module/src/",
-      "Uasoft\\Badaso\\Theme\\PostTheme\\": "packages/badaso/post-theme/src/",
+      "Uasoft\\Badaso\\Theme\\PostyTheme\\": "packages/badaso/posty-theme/src/",
       "Uasoft\\Badaso\\Module\\Content\\": "packages/badaso/content-module/src/"
     }
   },
