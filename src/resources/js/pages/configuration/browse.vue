@@ -2,7 +2,7 @@
   <div>
     <badaso-breadcrumb-row />
     <vs-row
-      v-if="$helper.isAllowed('browse_post_theme_configuration') && groupList.length > 0"
+      v-if="$helper.isAllowed('browse_posty_theme_configuration') && groupList.length > 0"
     >
       <vs-col vs-lg="12">
         <vs-card>
@@ -14,7 +14,7 @@
             >
               <vs-row
                 class="site-management__container"
-                v-for="(config, index) in filterConfigurations('postTheme')"
+                v-for="(config, index) in filterConfigurations('postyTheme')"
                 :key="index"
               >
                 <badaso-text
@@ -239,7 +239,7 @@
 import _ from "lodash";
 
 export default {
-  name: "PostThemeConfigurationBrowse",
+  name: "PostyThemeConfigurationBrowse",
   components: {},
   data: () => ({
     configurations: [],
@@ -250,8 +250,8 @@ export default {
       get() {
         return [
           {
-            label: 'Post Theme Configuration',
-            value: 'postTheme'
+            label: 'Posty Theme Configuration',
+            value: 'postyTheme'
           }
         ]
       },

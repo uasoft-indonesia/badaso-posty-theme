@@ -5,10 +5,10 @@
         <vs-avatar :src="comments.user.avatar" class="m-0" />
       </vs-col>
       <vs-col class="pl-8 mb-16" vs-w="11">
-        <p class="post-theme__comments--user mb-8">{{ comments.user.name }}</p>
-        <p class="post-theme__comments--content mb-8">{{ comments.content }}</p>
-        <p class="post-theme__comments--small mb-0">{{ $moment(comments.createdAt, "LL") }}</p>
-        <p class="post-theme__comments--link pointer ml-8 mb-0" @click="reply = true">Reply</p>
+        <p class="posty-theme__comments--user mb-8">{{ comments.user.name }}</p>
+        <p class="posty-theme__comments--content mb-8">{{ comments.content }}</p>
+        <p class="posty-theme__comments--small mb-0">{{ $moment(comments.createdAt, "LL") }}</p>
+        <p class="posty-theme__comments--link pointer ml-8 mb-0" @click="reply = true">Reply</p>
       </vs-col>
     </vs-row>
     <vs-row v-if="reply" class="pl-40">
@@ -25,9 +25,9 @@
             <vs-avatar :src="child.user.avatar" class="m-0" />
           </vs-col>
           <vs-col class="pl-8" vs-w="11">
-            <p class="post-theme__comments--user mb-8">{{ child.user.name }}</p>
-            <p class="post-theme__comments--content mb-8">{{ child.content }}</p>
-            <p class="post-theme__comments--small mb-0">{{ $moment(child.createdAt, "LL") }}</p>
+            <p class="posty-theme__comments--user mb-8">{{ child.user.name }}</p>
+            <p class="posty-theme__comments--content mb-8">{{ child.content }}</p>
+            <p class="posty-theme__comments--small mb-0">{{ $moment(child.createdAt, "LL") }}</p>
           </vs-col>
         </vs-col>
       </vs-row>
@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "PostThemeComment",
+  name: "PostyThemeComment",
   components: {
   },
   props: {

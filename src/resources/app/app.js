@@ -33,7 +33,7 @@ Inertia.on("navigate", (event) => {
   setTimeout(() => {
     window.titleElement = event.srcElement
       .getElementById("app")
-      .getElementsByClassName("post-theme__post--title");
+      .getElementsByClassName("posty-theme__post--title");
 
     const page_title = window.titleElement[0]?.innerText ?? document.title;
     const { href: page_location, pathname: page_path } = window.location;
@@ -58,7 +58,7 @@ createInertiaApp({
   resolve: (name) => {
     const isExists = require
       .context(
-        "./../../../../../../resources/js/badaso/theme/post-theme/pages",
+        "./../../../../../../resources/js/badaso/theme/posty-theme/pages",
         false,
         /\.vue$/
       )
@@ -66,7 +66,7 @@ createInertiaApp({
       .some((key) => key.includes(name));
 
     if (isExists) {
-      return require(`./../../../../../../resources/js/badaso/theme/post-theme/pages/${name}.vue`);
+      return require(`./../../../../../../resources/js/badaso/theme/posty-theme/pages/${name}.vue`);
     } else {
       return require(`./pages/${name}.vue`);
     }

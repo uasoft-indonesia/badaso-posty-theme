@@ -38,13 +38,13 @@
     "minimum-stability": "alpha",
     "autoload": {
         "psr-4": {
-            "Uasoft\\Badaso\\Theme\\PostTheme\\": "src/"
+            "Uasoft\\Badaso\\Theme\\PostyTheme\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Uasoft\\Badaso\\Theme\\PostTheme\\Providers\\PostThemeProvider"
+                "Uasoft\\Badaso\\Theme\\PostyTheme\\Providers\\PostyThemeProvider"
             ]
         }
     },

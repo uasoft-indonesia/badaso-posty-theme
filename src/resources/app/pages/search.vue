@@ -1,33 +1,33 @@
 <template>
   <div v-if="loading" style="display: block; text-align: center">
-    <vs-icon icon="refresh" class="post-theme__loading mb-30" size="large"></vs-icon>
+    <vs-icon icon="refresh" class="posty-theme__loading mb-30" size="large"></vs-icon>
   </div>
   <div v-else>
     <vs-row vs-type="flex" :vs-justify="$isMobile() ? 'center' : 'flex-start'" :vs-align="$isMobile() ? 'center' : 'start'">
       <vs-col vs-lg="9" vs-xs="12" vs-sm="12" :class="{ 'pr-30': !$isMobile() }">
         <vs-row vs-justify="center" vs-align="flex-end" vs-type="flex" v-if="posts.data && posts.data.length > 0">
           <vs-col vs-w="12" vs-justify="flex-start" vs-align="center" vs-type="flex">
-            <span class="post-theme__categories--tag">SEARCH: <b>{{ search }}</b></span>
+            <span class="posty-theme__categories--tag">SEARCH: <b>{{ search }}</b></span>
           </vs-col>
           <vs-divider />
           <vs-col vs-w="12">
-            <vs-card class="post-theme__categories--card mb-30">
-              <div class="post-theme__categories--card-content-container" v-for="(post, index) in posts.data" :key="index">
+            <vs-card class="posty-theme__categories--card mb-30">
+              <div class="posty-theme__categories--card-content-container" v-for="(post, index) in posts.data" :key="index">
                 <vs-row vs-type="flex" vs-align="center" vs-justify="center">
                   <vs-col :class="{ 'mb-20': $isMobile(), 'pr-16': !$isMobile() }" vs-xs="12" vs-sm="12" vs-lg="5">
-                    <Link :href="route('badaso.post-theme.post', post.slug)">
+                    <Link :href="route('badaso.posty-theme.post', post.slug)">
                       <img :src="post.thumbnail">
                     </Link>
                   </vs-col>
                   <vs-col vs-xs="12" vs-sm="12" vs-lg="7">
-                    <Link :href="route('badaso.post-theme.post', post.slug)">
-                      <h3 class="post-theme__categories--content-title">{{ post.title }}</h3>
+                    <Link :href="route('badaso.posty-theme.post', post.slug)">
+                      <h3 class="posty-theme__categories--content-title">{{ post.title }}</h3>
                     </Link>
-                    <post-theme-info :post="post"></post-theme-info>
-                    <vue-clamp :max-lines="5" class="post-theme__categories--card-description">
+                    <posty-theme-info :post="post"></posty-theme-info>
+                    <vue-clamp :max-lines="5" class="posty-theme__categories--card-description">
                       {{ post.summary }}
                       <template slot="after">
-                        <Link :href="route('badaso.post-theme.post', post.slug)" class="post-theme__categories--read-more">... Baca Selengkapnya</Link>
+                        <Link :href="route('badaso.posty-theme.post', post.slug)" class="posty-theme__categories--read-more">... Baca Selengkapnya</Link>
                       </template>
                     </vue-clamp>
                   </vs-col>
@@ -63,7 +63,7 @@ import defaultLayout from "../layouts/default";
 import { Link } from "@inertiajs/inertia-vue"
 
 export default {
-  name: "PostThemeSearch",
+  name: "PostyThemeSearch",
   layout: defaultLayout,
   components: {
     VueClamp,

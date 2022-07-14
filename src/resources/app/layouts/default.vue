@@ -10,7 +10,7 @@
 import PostNavbar from './../components/navbar.vue'
 import PostFooter from './../components/footer.vue'
 export default {
-  name: "PostThemeLayout",
+  name: "PostyThemeLayout",
   components: {
     PostNavbar,
     PostFooter

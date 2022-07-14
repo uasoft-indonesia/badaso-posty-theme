@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Seeders\Badaso\PostTheme;
+namespace Database\Seeders\Badaso\PostyTheme;
 
 use Exception;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Uasoft\Badaso\Models\Configuration;
 
-class PostThemeConfigurationsSeeder extends Seeder
+class PostyThemeConfigurationsSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -23,23 +23,23 @@ class PostThemeConfigurationsSeeder extends Seeder
         try {
             $settings = [
                 0 => [
-                    'key'          => 'postThemeNavbarTitle',
+                    'key'          => 'postyThemeNavbarTitle',
                     'display_name' => 'Navigation Bar Title',
-                    'value'        => 'Post Theme',
+                    'value'        => 'Posty Theme',
                     'details'      => '',
                     'type'         => 'text',
                     'order'        => 1,
-                    'group'        => 'postTheme',
+                    'group'        => 'postyTheme',
                     'can_delete'   => 0,
                 ],
                 1 => [
-                    'key'          => 'postThemeFacebookId',
+                    'key'          => 'postyThemeFacebookId',
                     'display_name' => 'Facebook ID for comment',
                     'value'        => '',
                     'details'      => '',
                     'type'         => 'text',
                     'order'        => 2,
-                    'group'        => 'postTheme',
+                    'group'        => 'postyTheme',
                     'can_delete'   => 0,
                 ],
             ];

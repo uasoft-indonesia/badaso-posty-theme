@@ -1,10 +1,10 @@
 <?php
 
-namespace Uasoft\Badaso\Theme\PostTheme\Facades;
+namespace Uasoft\Badaso\Theme\PostyTheme\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class PostTheme extends Facade
+class PostyTheme extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class PostTheme extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'badaso-post-theme';
+        return 'badaso-posty-theme';
     }
 }

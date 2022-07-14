@@ -1,12 +1,12 @@
 <?php
 
-namespace Uasoft\Badaso\Theme\PostTheme\Commands;
+namespace Uasoft\Badaso\Theme\PostyTheme\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 
-class PostThemeSetup extends Command
+class PostyThemeSetup extends Command
 {
     protected $file;
     /**
@@ -14,14 +14,14 @@ class PostThemeSetup extends Command
      *
      * @var string
      */
-    protected $name = 'badaso-post-theme:setup';
+    protected $name = 'badaso-posty-theme:setup';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Setup Badaso Post Theme';
+    protected $description = 'Setup Badaso Posty Theme';
 
     /**
      * Create a new command instance.
@@ -49,9 +49,9 @@ class PostThemeSetup extends Command
 
     protected function publishConfig()
     {
-        Artisan::call('vendor:publish', ['--tag' => 'BadasoPostTheme']);
+        Artisan::call('vendor:publish', ['--tag' => 'BadasoPostyTheme']);
 
-        $this->info('Badaso post theme provider published');
+        $this->info('Badaso posty theme provider published');
     }
 
     protected function checkExist($file, $search)
@@ -63,15 +63,15 @@ class PostThemeSetup extends Command
     {
         // mix
         $mix_file = base_path('webpack.mix.js');
-        $search = 'Post Theme';
+        $search = 'Posty Theme';
 
         if ($this->checkExist($mix_file, $search)) {
             $data =
                 <<<'EOT'
 
-        // Post Theme
-        mix.js("vendor/badaso/post-theme/src/resources/app/app.js", "public/js/post-theme.js")
-            .sass("vendor/badaso/post-theme/src/resources/app/assets/scss/style.scss", "public/css/post-theme.css")
+        // Posty Theme
+        mix.js("vendor/badaso/posty-theme/src/resources/app/app.js", "public/js/posty-theme.js")
+            .sass("vendor/badaso/posty-theme/src/resources/app/assets/scss/style.scss", "public/css/posty-theme.css")
             .vue();
         EOT;
 
@@ -84,7 +84,7 @@ class PostThemeSetup extends Command
     protected function envListUpload()
     {
         return [
-            'POST_THEME_PREFIX' => 'post',
+            'POSTY_THEME_PREFIX' => 'posty',
         ];
     }
 

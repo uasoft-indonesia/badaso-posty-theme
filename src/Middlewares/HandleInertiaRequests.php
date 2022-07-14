@@ -1,6 +1,6 @@
 <?php
 
-namespace Uasoft\Badaso\Theme\PostTheme\Middlewares;
+namespace Uasoft\Badaso\Theme\PostyTheme\Middlewares;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -18,7 +18,7 @@ class HandleInertiaRequests extends Middleware
      *
      * @var string
      */
-    protected $rootView = 'post-theme::app';
+    protected $rootView = 'posty-theme::app';
 
     /**
      * Determines the current asset version.
@@ -45,10 +45,10 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
-        $social_media = ApiResponse::success(Content::select(['id', 'value'])->where('slug', 'post-theme-social-media')->first())->original['data'] ?? [];
+        $social_media = ApiResponse::success(Content::select(['id', 'value'])->where('slug', 'posty-theme-social-media')->first())->original['data'] ?? [];
 
         return array_merge(parent::share($request), [
-            'appName'     => Config::get('postThemeNavbarTitle'),
+            'appName'     => Config::get('postyThemeNavbarTitle'),
             'categories'  => Category::all(['id', 'title', 'slug']),
             'socialMedia' => $social_media,
         ]);

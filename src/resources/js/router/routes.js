@@ -6,11 +6,11 @@ let prefix = process.env.MIX_ADMIN_PANEL_ROUTE_PREFIX
 
 export default [
   {
-    path: prefix + "/post-theme-configuration",
-    name: "PostThemeConfigurationBrowse",
+    path: prefix + "/posty-theme-configuration",
+    name: "PostyThemeConfigurationBrowse",
     component: Pages,
     meta: {
-      title: "Browse Post Theme Configuration",
+      title: "Browse Posty Theme Configuration",
       useComponent: "AdminContainer"
     },
   },

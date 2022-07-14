@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'post_theme_prefix' => env('POST_THEME_PREFIX'),
+    'posty_theme_prefix' => env('POSTY_THEME_PREFIX'),
 
     /**
      * Overriding controllers.
