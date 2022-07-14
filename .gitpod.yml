@@ -3,24 +3,24 @@ image:
 tasks:
   - name: Starting Project
     init: composer create-project laravel/laravel:^8.0 laravel &&
-      mkdir -p laravel/packages/badaso/post-theme &&
-      mv {,.}* laravel/packages/badaso/post-theme 2>/dev/null; true &&
+      mkdir -p laravel/packages/badaso/posty-theme &&
+      mv {,.}* laravel/packages/badaso/posty-theme 2>/dev/null; true &&
       cd laravel/packages/badaso &&
       git clone --branch 2.x --single-branch https://github.com/uasoft-indonesia/badaso.git core &&
       git clone https://github.com/uasoft-indonesia/badaso-post-module.git post-module &&
       git clone https://github.com/uasoft-indonesia/badaso-content-module.git content-module &&
       cd ../../ &&
-      cp packages/badaso/post-theme/.gitpod/AppServiceProvider.php app/Providers/AppServiceProvider.php &&
-      cp packages/badaso/post-theme/.gitpod/app.php config/app.php &&
-      cp packages/badaso/post-theme/.gitpod/composer.json composer.json &&
-      cp packages/badaso/post-theme/.gitpod/webpack.mix.js webpack.mix.js &&
+      cp packages/badaso/posty-theme/.gitpod/AppServiceProvider.php app/Providers/AppServiceProvider.php &&
+      cp packages/badaso/posty-theme/.gitpod/app.php config/app.php &&
+      cp packages/badaso/posty-theme/.gitpod/composer.json composer.json &&
+      cp packages/badaso/posty-theme/.gitpod/webpack.mix.js webpack.mix.js &&
       cp .env.example .env &&
       composer update &&
       php artisan key:generate &&
       mysql -u root -e "create database laravel"
     command: php artisan badaso:setup --force &&
       php artisan badaso-post:setup &&
-      php artisan badaso-post-theme:setup &&
+      php artisan badaso-posty-theme:setup &&
       php artisan badaso-content:setup &&
       sed -i 's/http:\/\/localhost//g' .env &&
       sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
@@ -29,9 +29,9 @@ tasks:
       sed -i "s|MIX_FRONTEND_URL=|MIX_FRONTEND_URL=${GITPOD_WORKSPACE_URL}|g" .env &&
       sed -i "s|MIX_FRONTEND_URL=https://|MIX_FRONTEND_URL=https://8000-|g" .env &&
       sed -i 's/FILESYSTEM_DRIVER=local/FILESYSTEM_DRIVER=public/g' .env &&
-      sed -i 's/MIX_DEFAULT_MENU=general/MIX_DEFAULT_MENU=general,post-module,post-theme,content-module/g' .env &&
-      sed -i 's/MIX_BADASO_MENU=${MIX_DEFAULT_MENU}/MIX_BADASO_MENU=${MIX_DEFAULT_MENU},post-module,post-theme,content-module/g' .env &&
-      echo -e "\nMIX_BADASO_MODULES=post-module,post-theme,content-module" >> .env &&
+      sed -i 's/MIX_DEFAULT_MENU=general/MIX_DEFAULT_MENU=general,post-module,posty-theme,content-module/g' .env &&
+      sed -i 's/MIX_BADASO_MENU=${MIX_DEFAULT_MENU}/MIX_BADASO_MENU=${MIX_DEFAULT_MENU},post-module,posty-theme,content-module/g' .env &&
+      echo -e "\nMIX_BADASO_MODULES=post-module,posty-theme,content-module" >> .env &&
       php artisan migrate &&
       php artisan db:seed --class="Database\Seeders\Badaso\BadasoSeeder" &&
       php artisan db:seed --class="Database\Seeders\Badaso\Post\BadasoPostModuleSeeder" &&
