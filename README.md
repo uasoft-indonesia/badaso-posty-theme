@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://badaso-posty.uatech.co.id/">
-    <img src="https://badaso-posty.uatech.co.id/img/badaso-module-logo.png" width="150px" alt="Badaso Posty Theme Logo" />
+    <img src="https://badaso-posty-theme.uatech.co.id/img/badaso-module-logo.png" width="150px" alt="Badaso Posty Theme Logo" />
   </a>
 </p>
 <h3 align="center">badaso/posty-theme</h3>
