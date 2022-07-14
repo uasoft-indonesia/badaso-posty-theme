@@ -6,15 +6,15 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Badaso Post Theme Documentation",
-  tagline: "Badaso post theme official documentation",
-  url: "https://badaso-post-theme.uatech.co.id",
+  title: "Badaso Posty Theme Documentation",
+  tagline: "Official free theme for badaso post module",
+  url: "https://badaso-posty-theme.uatech.co.id",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "uasoft-indonesia", // Usually your GitHub org/user name.
-  projectName: "badaso-post-theme", // Usually your repo name.
+  projectName: "badaso-posty-theme", // Usually your repo name.
   trailingSlash: false,
 
   i18n: {
@@ -30,14 +30,14 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/uasoft-indonesia/badaso-post-theme/edit/main/website/",
+          editUrl: "https://github.com/uasoft-indonesia/badaso-posty-theme/edit/main/website/",
           routeBasePath: "/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            "https://github.com/uasoft-indonesia/badaso-post-theme/edit/main/website/blog",
+            "https://github.com/uasoft-indonesia/badaso-posty-theme/edit/main/website/blog",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -50,9 +50,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "Badaso Post Theme",
+        title: "Badaso Posty Theme",
         logo: {
-          alt: "Badaso Post Theme Logo",
+          alt: "Badaso Posty Theme Logo",
           src: "img/badaso-module-logo.png",
         },
         items: [
@@ -69,7 +69,7 @@ const config = {
           },
 
           {
-            href: "https://github.com/uasoft-indonesia/badaso-post-theme",
+            href: "https://github.com/uasoft-indonesia/badaso-posty-theme",
             label: "GitHub",
             position: "right",
           },
